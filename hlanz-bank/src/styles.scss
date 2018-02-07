@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+$blue: #00ADB5;
+$dark-grey: #303841;
+$grey: #EEE;
+
+* {font-family: sans-serif;}
+body {margin: 0; padding: 0}
+a:hover { text-decoration: none; color: black;}
+
+button.btn{
+    background-color: $dark-grey;
+    border: none;
+    color: $grey;
+}
+button.btn:hover { cursor: pointer }
+
+input {
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    border-bottom: 2px solid $dark-grey;
+}
+input:focus {
+    outline: none;
+}

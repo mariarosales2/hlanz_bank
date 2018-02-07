@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <img src="./assets/logo.png" width="70px"/>
+    <mat-drawer-container class="example-container">
+        <mat-drawer #drawer mode="side" position="end">
+          <button mat-raised-button>
+            Acceso usuarios
+          </button>
+        </mat-drawer>
+        <div class="login">
+          <button type="button" mat-button (click)="drawer.toggle()">
+            Toggle sidenav
+          </button>
+        </div>
+      </mat-drawer-container>     
+  </mat-toolbar-row>
+</mat-toolbar>
