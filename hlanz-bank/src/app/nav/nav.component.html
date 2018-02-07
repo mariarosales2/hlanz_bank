@@ -1,17 +1,36 @@
-<mat-toolbar>
-  <mat-toolbar-row>
-    <img src="./assets/logo.png" width="70px"/>
-    <mat-drawer-container class="example-container">
-        <mat-drawer #drawer mode="side" position="end">
-          <button mat-raised-button>
-            Acceso usuarios
-          </button>
-        </mat-drawer>
-        <div class="login">
-          <button type="button" mat-button (click)="drawer.toggle()">
-            Toggle sidenav
-          </button>
+<mat-toolbar class="grey">
+    <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand" href="#">
+          <img src="./assets/logo.png" width="70px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">X</span>
+        </button>
+      <div class="collapse navbar-collapse ml-auto" id="navbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"> Inicio </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"> Cuentas y tarjetas </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"> Hipotecas y préstamos </a>
+            </li>
+          </ul>
         </div>
-      </mat-drawer-container>     
-  </mat-toolbar-row>
+      </nav>
+      <button type="button" class="btn dropdown-toggle ml-auto" 
+        data-toggle="dropdown" aria-haspopup="true" >
+        <span fxHide.md>Acceso clientes</span>
+      </button>
+      <div class="dropdown-menu grey">
+          <form class="form-group">
+              <input type="text" placeholder="Usuario"/><br/>
+              <input type="password" placeholder="PIN"/><br/>
+              <input type="submit" class="btn" value="Entrar"/>
+          </form>
+      </div>
 </mat-toolbar>
+

@@ -5,7 +5,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule,
         MatSidenavModule,
         MatMenuModule,
-        MatButtonModule
+        MatButtonModule,
+        MatFormFieldModule
         } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -23,7 +24,8 @@ import { NavComponent } from './nav/nav.component';
     MatToolbarModule,
     MatMenuModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

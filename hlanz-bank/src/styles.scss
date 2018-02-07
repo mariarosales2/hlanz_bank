@@ -8,8 +8,9 @@ $grey: #EEE;
 * {font-family: sans-serif;}
 body {margin: 0; padding: 0}
 a:hover { text-decoration: none; color: black;}
+*.grey {background-color: $grey;}
 
-button.btn{
+*.btn{
     background-color: $dark-grey;
     border: none;
     color: $grey;
@@ -19,7 +20,7 @@ button.btn:hover { cursor: pointer }
 input {
     background-color: transparent;
     padding: 5px;
-    margin: 5px;
+    margin: 8px;
     border: none;
     border-bottom: 2px solid $dark-grey;
 }
