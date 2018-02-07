@@ -9,6 +9,8 @@ import {MatToolbarModule,
         MatFormFieldModule
         } from '@angular/material';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 
@@ -25,7 +27,9 @@ import { NavComponent } from './nav/nav.component';
     MatMenuModule,
     MatSidenavModule,
     MatButtonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
