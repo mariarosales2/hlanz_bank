@@ -13,12 +13,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,9 @@ import { NavComponent } from './nav/nav.component';
     MatButtonModule,
     MatFormFieldModule,
 
-    FlexLayoutModule
+    FlexLayoutModule,
+
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
