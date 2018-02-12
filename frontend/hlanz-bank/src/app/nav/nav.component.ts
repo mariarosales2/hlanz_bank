@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interceptingHandler } from '@angular/common/http/src/module';
 
 @Component({
   selector: 'app-nav',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+  usuario : Usuario ;
+  
+  constructor() {
 
-  constructor() { }
+   }
 
   ngOnInit() {
   }
 
+}
+
+export interface Usuario {
+  user : string;
+  pass : number;
 }

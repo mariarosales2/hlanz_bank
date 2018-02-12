@@ -8,7 +8,7 @@ import {MatToolbarModule,
         MatButtonModule,
         MatFormFieldModule
         } from '@angular/material';
-
+import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
@@ -31,7 +31,7 @@ import { HomeComponent } from './home/home.component';
     MatSidenavModule,
     MatButtonModule,
     MatFormFieldModule,
-
+    FormsModule,
     FlexLayoutModule,
 
     AppRoutingModule

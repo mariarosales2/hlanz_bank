@@ -17,7 +17,7 @@
           <a class="nav-link" href="#"> Cuentas y tarjetas </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Hipotecas y préstamos </a>
+          <a class="nav-link" href="#"> Créditos </a>
         </li>
         <li class="nav-item dropdown">
           <button class="btn nav-link" data-toggle="dropdown" aria-haspopup="true">
@@ -25,9 +25,9 @@
           </button>
           <div class="dropdown-menu grey">
             <form class="form-group">
-              <input type="text" placeholder="Usuario" />
+              <input type="text" placeholder="Usuario" [(ngModel)]="usuario.user" name="user">
               <br/>
-              <input type="password" placeholder="PIN" maxlength="4"/>
+              <input type="password" placeholder="PIN" maxlength="4" [(ngModel)]="usuario.pass" name="pass"/>
               <br/>
               <input type="submit" class="btn" value="Entrar" />
             </form>
