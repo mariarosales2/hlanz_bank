@@ -4,9 +4,10 @@
 <hibernate-configuration>
 	 <session-factory>
 	  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-	  <property name="hibernate.connection.username">root</property>
-	  <property name="hibernate.connection.password">97130137</property>
-	  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hlanz_bank</property>
+	  <property name="hibernate.connection.datasource">java:/comp/env/jdbc/hlanz_bank</property>
 	  <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+	  <property name="hibernate.username">root</property>
+	  <property name="hibernate.password">97130137</property>
+	  <!-- <property name="hibernate.url">jdbc:mysql://localhost:3306/hlanz_bank</property> -->
 	 </session-factory>
 </hibernate-configuration>

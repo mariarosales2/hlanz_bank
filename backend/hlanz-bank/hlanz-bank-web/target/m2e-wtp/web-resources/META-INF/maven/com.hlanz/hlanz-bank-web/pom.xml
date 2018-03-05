@@ -13,7 +13,9 @@
   <packaging>war</packaging>
   <name>hlanz-bank-web Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
   <dependencies>
+  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -25,7 +27,47 @@
     	<artifactId>hlanz-bank-business</artifactId>
     	<version>1.0</version>
     </dependency>
+
+	<dependency>
+		<groupId>com.hlanz</groupId>
+		<artifactId>hlanz-bank-ws</artifactId>
+		<version>1.0</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-frontend-jaxrs -->
+	<dependency>
+	    <groupId>org.apache.cxf</groupId>
+	    <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+	    <version>3.1.4</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http -->
+	<dependency>
+	    <groupId>org.apache.cxf</groupId>
+	    <artifactId>cxf-rt-transports-http</artifactId>
+	    <version>3.1.4</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-web</artifactId>
+	    <version>4.3.6.RELEASE</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-beans</artifactId>
+		<version>4.3.6.RELEASE</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-orm</artifactId>
+	    <version>4.3.6.RELEASE</version>
+	</dependency>
   </dependencies>
+  
   <build>
     <finalName>hlanz-bank-web</finalName>
   </build>

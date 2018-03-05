@@ -1,12 +1,15 @@
 package com.hlanz.bank.business.domain;
-// Generated 13-feb-2018 16:11:20 by Hibernate Tools 5.2.8.Final
+// Generated 05-mar-2018 16:47:25 by Hibernate Tools 5.2.8.Final
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -20,6 +23,7 @@ public class Cuentas implements java.io.Serializable {
 	private Usuarios usuarios;
 	private String numero;
 	private float saldo;
+	private Set<Movimientos> movimientoses = new HashSet<Movimientos>(0);
 
 	public Cuentas() {
 	}
@@ -29,6 +33,14 @@ public class Cuentas implements java.io.Serializable {
 		this.usuarios = usuarios;
 		this.numero = numero;
 		this.saldo = saldo;
+	}
+
+	public Cuentas(int idCuenta, Usuarios usuarios, String numero, float saldo, Set<Movimientos> movimientoses) {
+		this.idCuenta = idCuenta;
+		this.usuarios = usuarios;
+		this.numero = numero;
+		this.saldo = saldo;
+		this.movimientoses = movimientoses;
 	}
 
 	@Id
@@ -68,6 +80,15 @@ public class Cuentas implements java.io.Serializable {
 
 	public void setSaldo(float saldo) {
 		this.saldo = saldo;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cuentas")
+	public Set<Movimientos> getMovimientoses() {
+		return this.movimientoses;
+	}
+
+	public void setMovimientoses(Set<Movimientos> movimientoses) {
+		this.movimientoses = movimientoses;
 	}
 
 }

@@ -9,15 +9,21 @@
   <version>1.0</version>
   
   <dependencies>
-  
-  	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+  	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>5.1.38</version>
+	</dependency>
+  	
+  	<!-- org.hibernate/hibernate-core -->
 	<dependency>
     	<groupId>org.hibernate</groupId>
     	<artifactId>hibernate-core</artifactId>
     	<version>5.2.12.Final</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+	<!-- org.hibernate/hibernate-entitymanager -->
 	<dependency>
 	    <groupId>org.hibernate</groupId>
 	    <artifactId>hibernate-entitymanager</artifactId>
@@ -25,63 +31,75 @@
 	</dependency>
 	
 	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+	<!-- org.springframework/spring-core -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-core</artifactId>
 	    <version>4.3.6.RELEASE</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+	<!-- org.springframework/spring-orm -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-beans</artifactId>
+	    <artifactId>spring-orm</artifactId>
 	    <version>4.3.6.RELEASE</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+	<!-- org.springframework/spring-web -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-web</artifactId>
 	    <version>4.3.6.RELEASE</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+	<!-- org.springframework/spring-context -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-context</artifactId>
 	    <version>4.2.0.RELEASE</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+	<!-- org.springframework/spring-beans -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-beans</artifactId>
-	    <version>4.2.0.RELEASE</version>
+	    <version>4.3.6.RELEASE</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+	<!-- org.springframework/spring-aop -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-aop</artifactId>
-	    <version>4.2.0.RELEASE</version>
+	    <version>4.3.6.RELEASE</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-tx</artifactId>
+	    <version>4.3.6.RELEASE</version>
+	</dependency>
+	
+	<!-- org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
 	<dependency>
 	    <groupId>org.hibernate.javax.persistence</groupId>
 	    <artifactId>hibernate-jpa-2.1-api</artifactId>
 	    <version>1.0.0.Final</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
+	<!-- javax.inject/javax.inject -->
 	<dependency>
 	    <groupId>javax.inject</groupId>
 	    <artifactId>javax.inject</artifactId>
 	    <version>1</version>
 	</dependency>
 	
-	
+	<!-- javax.persistence/persistence-api -->
+	<dependency>
+	    <groupId>javax.persistence</groupId>
+	    <artifactId>persistence-api</artifactId>
+	    <version>1.0</version>
+	</dependency>
   	
   </dependencies>
 </project>

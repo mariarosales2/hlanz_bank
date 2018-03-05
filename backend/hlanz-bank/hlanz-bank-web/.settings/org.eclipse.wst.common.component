@@ -7,6 +7,9 @@
         <dependent-module archiveName="hlanz-bank-business-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/hlanz-bank-business/hlanz-bank-business">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="hlanz-bank-ws-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/hlanz-bank-ws/hlanz-bank-ws">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="hlanz-bank-web"/>
         <property name="java-output-path" value="/hlanz-bank-web/target/classes"/>
     </wb-module>

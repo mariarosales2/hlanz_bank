@@ -18,15 +18,16 @@ public class CuentasDTO {
 		return dto;
 	}
 	
-	public CuentasDTO[] toDTOListado(List<Cuentas> listado) {
-		CuentasDTO[] lista = null;
-		CuentasDTO[] list = listado[];
+	public CuentasDTO[] toDTOListado(List<Cuentas> lista) {
+		CuentasDTO[] listaDTO = new CuentasDTO[lista.size()];
+		CuentasDTO dto = new CuentasDTO();
 		int i = 0;
 		
-		for(CuentasDTO lin : listado)
-			lista[i++] = lin;
+		for(Cuentas lin : lista) {
+			listaDTO[i++] = dto.toDTO(lin);
+		}
 		
-		return lista;
+		return listaDTO;
 	}
 	
 	public String getNumero() {
