@@ -6,22 +6,28 @@ import {MatToolbarModule,
         MatSidenavModule,
         MatMenuModule,
         MatButtonModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        MatTableModule
         } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpModule, Http } from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { SaldosComponent } from './saldos/saldos.component';
+import { CuentasService } from './cuentas.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    SaldosComponent
   ],
   imports: [
     BrowserModule,
@@ -32,11 +38,14 @@ import { HomeComponent } from './home/home.component';
     MatButtonModule,
     MatFormFieldModule,
     FormsModule,
+    MatTableModule,
+    HttpModule,
+    HttpClientModule,
     FlexLayoutModule,
 
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CuentasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

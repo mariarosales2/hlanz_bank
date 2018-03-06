@@ -7,13 +7,29 @@ import { interceptingHandler } from '@angular/common/http/src/module';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  usuario : Usuario ;
-  
+  usuario : Usuario = {
+    user : null,
+    pass : null
+  };
+
+  elementos : Elementos[];
   constructor() {
 
    }
 
+  nav(){
+      this.elementos = [
+        {name : "Cuentas y tarjetas", link : "/cuentas"},
+        {name: "Créditos" , link : "/creditos"}
+      ];
+      // this.elementos = [
+      //   {name : "Movimientos", link : "/movimientos"},
+      //   {name: "Transferencias" , link : "/transferencias"}
+      // ];
+  }
+
   ngOnInit() {
+    this.nav();
   }
 
 }
@@ -21,4 +37,9 @@ export class NavComponent implements OnInit {
 export interface Usuario {
   user : string;
   pass : number;
+}
+
+export interface Elementos {
+  name: string;
+  link: string;
 }

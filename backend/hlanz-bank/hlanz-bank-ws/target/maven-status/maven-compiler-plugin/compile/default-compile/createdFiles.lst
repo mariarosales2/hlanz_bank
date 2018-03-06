@@ -1,0 +1,3 @@
+com\hlanz\bank\ws\services\impl\ServicioCuentasImpl.class
+com\hlanz\bank\ws\services\ServicioCuentas.class
+com\hlanz\bank\ws\dto\CuentasDTO.class
