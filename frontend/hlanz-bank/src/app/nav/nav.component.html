@@ -1,13 +1,14 @@
-<nav class="navbar navbar-expand-md grey">
+<nav class="navbar navbar-expand-sm grey">
     <a class="navbar-brand ml-0" href="#">
       <img src="./assets/logo.png" width="70px">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNav" aria-expanded="false"
-      aria-label="Toggle navigation">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNav" aria-expanded="false">
       <span class="navbar-toggler-icon">
         <i class="material-icons">menu</i>
       </span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="navbar-nav  ml-auto">
         <li class="nav-item active" *ngFor="let element of elementos">
@@ -18,12 +19,12 @@
             Acceso clientes
           </button>
           <div class="dropdown-menu grey">
-            <form class="form-group">
-              <input type="text" placeholder="Usuario" [(ngModel)]="usuario.user" name="user">
+            <form class="form-group" method="post">
+              <input type="text" placeholder="Usuario" #user name="user" [(ngModel)]="usuario.dni"/>
               <br/>
-              <input type="password" placeholder="PIN" maxlength="4" [(ngModel)]="usuario.pass" name="pass"/>
+              <input type="password" placeholder="PIN" #pin maxlength="4" name="pin" [(ngModel)]="usuario.pin"/>
               <br/>
-              <input type="submit" class="btn" value="Entrar" />
+              <input type="submit" class="btn" value="Entrar" (click)="autenticar(user.value, pin.value)"/>
             </form>
           </div>
         </li>

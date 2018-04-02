@@ -9,12 +9,16 @@
 	
 	<jaxrs:server id="hlanzServices" address="/rest/">
 		<jaxrs:serviceBeans>
+		   <ref bean="servicioUsuarios"/>
 		   <ref bean="servicioCuentas"/>
+		   <ref bean="servicioInfo"/>
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 		   <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
 		</jaxrs:providers>    
-    </jaxrs:server>       
-      
-    <bean id="servicioCuentas" class="com.hlanz.bank.ws.services.impl.ServicioCuentasImpl" />				
+    </jaxrs:server>  
+    <bean id="servicioUsuarios" class="com.hlanz.bank.ws.services.impl.ServicioUsuariosImpl" />     
+    <bean id="servicioInfo" class="com.hlanz.bank.ws.services.impl.ServicioInfoImpl" />  
+    <bean id="servicioCuentas" class="com.hlanz.bank.ws.services.impl.ServicioCuentasImpl" />
+    				
 </beans>

@@ -12,10 +12,16 @@ div.dropdown-menu.show {
 
 
 @media screen and (max-width: 768px){
+    .navbar-nav {
+        text-align: center; 
+        .btn {
+            margin-left: auto;
+            margin-right: auto; 
+        }
+    }
     div.dropdown-menu.show {
         top: 5px !important;
         padding: 10px;
         width: 100%;
-        text-align: center;
     }
 }

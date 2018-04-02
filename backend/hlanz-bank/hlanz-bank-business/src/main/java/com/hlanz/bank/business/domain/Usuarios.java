@@ -1,5 +1,5 @@
 package com.hlanz.bank.business.domain;
-// Generated 05-mar-2018 16:47:25 by Hibernate Tools 5.2.8.Final
+// Generated 19-mar-2018 15:37:40 by Hibernate Tools 5.2.8.Final
 
 import java.util.HashSet;
 import java.util.Set;

@@ -18,8 +18,11 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
-import { SaldosComponent } from './saldos/saldos.component';
-import { CuentasService } from './cuentas.service';
+import { CuentasComponent } from './cuentas/cuentas.component';
+import { CuentasService } from './services/cuentas.service';
+import { MovimientosComponent } from './movimientos/movimientos.component';
+import { NoticiasComponent } from './noticias/noticias.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { CuentasService } from './cuentas.service';
     AppComponent,
     NavComponent,
     HomeComponent,
-    SaldosComponent
+    CuentasComponent,
+    MovimientosComponent,
+    NoticiasComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,6 @@ import { CuentasService } from './cuentas.service';
     HttpModule,
     HttpClientModule,
     FlexLayoutModule,
-
     AppRoutingModule
   ],
   providers: [CuentasService],

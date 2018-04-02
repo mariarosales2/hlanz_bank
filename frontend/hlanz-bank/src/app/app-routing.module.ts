@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { SaldosComponent } from './saldos/saldos.component';
+import { CuentasComponent } from './cuentas/cuentas.component';
+import { NoticiasComponent } from './noticias/noticias.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
   { path: '', component: HomeComponent },
-  { path: 'cuentas', component: SaldosComponent}
+  { path: 'saldos', component: CuentasComponent},
+  { path: 'info/:id', component: NoticiasComponent}
 ];
 
 @NgModule({

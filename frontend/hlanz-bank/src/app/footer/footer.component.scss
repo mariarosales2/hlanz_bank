@@ -1,0 +1,15 @@
+@import "../../colores.scss";
+footer, a {
+    color: $grey;
+    ul {
+        li{
+            list-style: none;
+            margin: 15px 0;
+        }
+        i { font-size: 20px; }
+        li:hover a i {
+            font-size: 24px;
+            color: $blue;
+        }
+    }
+}

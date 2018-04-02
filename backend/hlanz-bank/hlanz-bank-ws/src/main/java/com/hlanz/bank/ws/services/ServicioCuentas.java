@@ -15,4 +15,5 @@ public interface ServicioCuentas {
 	@POST
 	@Path("/getCuentas")
 	public CuentasDTO[] getCuentas(int id);
+
 }

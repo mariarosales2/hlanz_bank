@@ -4,5 +4,5 @@ import com.hlanz.bank.business.domain.Usuarios;
 
 public interface UsuariosDAO {
 
-	public Usuarios autenticarUser(Usuarios usuario);
+	public Usuarios autenticarUser(String dni, int pin);
 }
