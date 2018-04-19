@@ -1,0 +1,38 @@
+<div class="contenedor" fxLayoutAlign="center" fxLayout="column">
+    <h3>Transferencia</h3>
+    <form>
+        <div class="form-group">
+            <select class="form-control" [value]="transferencia.cuentaEmisora">
+                <option *ngFor="let cuenta of cuentasUsuario">
+                    {{cuenta.numero}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cuenta">IBAN</label>
+            <input type="email" class="form-control" 
+                    id="cuenta" aria-describedby="emailHelp" 
+                    maxlength="20" required
+                    [(ngModel)]="transferencia.movimiento.cuenta">
+            <small id="emailHelp" class="form-text text-muted">Introduce el IBAN sin espacios.</small>
+        </div>
+
+        <div fxLayout="row">
+            <div class="form-group">
+                <label for="concepto">Concepto</label>
+                <input type="password" class="form-control" id="concepto" [(ngModel)]="transferencia.movimiento.concepto">
+            </div>
+
+            <label for="importe">Importe</label>
+            <div class="form-group input-group">
+                <input type="password" class="form-control" id="importe" [(ngModel)]="transferencia.movimiento.movimiento">
+                <div class="input-group-append" fxLayoutAlign="end">
+                    <span class="input-group-text">€</span>
+                </div>
+            </div>
+        </div>
+        <mat-checkbox color="primary" id="check"></mat-checkbox>
+        <label class="form-check-label" for="check"></label>
+        <button type="submit" class="btn btn-primary" fxLayoutAlign="end">Enviar</button>
+    </form>
+</div>
