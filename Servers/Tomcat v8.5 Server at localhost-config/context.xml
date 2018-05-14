@@ -27,7 +27,7 @@
     -->
     <Resource name="jdbc/hlanz_bank" auth="Container" type="javax.sql.DataSource"
                maxTotal="100" maxIdle="30" maxWaitMillis="100000"
-               username="root" password="97130137" driverClassName="com.mysql.jdbc.Driver"
+               username="root" password="Ma.97130137" driverClassName="com.mysql.jdbc.Driver"
                url="jdbc:mysql://localhost:3306/hlanz_bank"/>
     
 </Context>

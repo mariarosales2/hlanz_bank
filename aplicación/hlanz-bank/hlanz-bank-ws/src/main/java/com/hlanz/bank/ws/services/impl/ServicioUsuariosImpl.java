@@ -2,7 +2,6 @@ package com.hlanz.bank.ws.services.impl;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
-import java.util.Base64.Decoder;
 
 import javax.inject.Inject;
 
@@ -27,6 +26,16 @@ public class ServicioUsuariosImpl implements ServicioUsuarios{
 		usuario.setPin(Integer.parseInt(user[1]));
 		Usuarios domain = gestorUsuarios.autenticarUser(FiltroUsuarioDTO.toDomain(usuario));
 		return UsuariosDTO.toDTO(domain);
+	}
+
+	@Override
+	public void crearUsuario(UsuariosDTO usuario) {
+		gestorUsuarios.registrarUsuario(UsuariosDTO.toDomain(usuario));
+	}
+	
+	@Override
+	public void modificarUsuario(UsuariosDTO usuario) {
+		gestorUsuarios.modificarUsuario(UsuariosDTO.toDomain(usuario));
 	}
 
 }

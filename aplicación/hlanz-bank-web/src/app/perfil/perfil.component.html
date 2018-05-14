@@ -1,0 +1,15 @@
+<div class="contenedor" fxLayoutAlign="center" fxLayout="column">
+  <h3>Modifica tus datos</h3>
+  <form fxLayout="column" (ngSubmit)="modificarUsuario()">
+    <label>Nombre</label>
+      <input matInput type="text" [(ngModel)]="usuario.nombre" disabled class="form-control">
+    <label>Apellidos</label>
+      <input type="text" class="form-control" matInput [(ngModel)]="usuario.apellidos" disabled>
+    <label>Teléfono</label>
+      <input type="tel" class="form-control" [(ngModel)]="usuario.telefono">
+    <label>Email</label>
+      <input type="email" class="form-control" [(ngModel)]="usuario.email">
+
+    <button class="btn">Modificar</button>
+  </form>
+</div>

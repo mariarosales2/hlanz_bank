@@ -1,8 +1,9 @@
 @import "../../colores.scss";
 footer, a {
     color: $grey;
+    text-align: center;
     ul {
-        li{
+        li {
             list-style: none;
             margin: 15px 0;
         }

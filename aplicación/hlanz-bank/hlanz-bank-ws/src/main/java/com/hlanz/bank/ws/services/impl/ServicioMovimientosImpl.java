@@ -6,7 +6,6 @@ import javax.inject.Inject;
 
 import com.hlanz.bank.business.control.GestorMovimientos;
 import com.hlanz.bank.business.domain.Movimientos;
-import com.hlanz.bank.ws.dto.FiltroMovimientosDTO;
 import com.hlanz.bank.ws.dto.MovimientosDTO;
 import com.hlanz.bank.ws.services.ServicioMovimientos;
 
@@ -21,8 +20,8 @@ public class ServicioMovimientosImpl implements ServicioMovimientos{
 	}
 
 	@Override
-	public void transferencia(FiltroMovimientosDTO filtro) {
-		gestorMovimientos.transferencia(MovimientosDTO.toDomain(filtro.getMovimiento()), filtro.getCuentaEmisora());
+	public void transferencia(MovimientosDTO dto) {
+		gestorMovimientos.transferencia(MovimientosDTO.toDomain(dto));
 	}
 
 }

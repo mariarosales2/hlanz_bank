@@ -14,7 +14,7 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="idCuenta = row.idCuenta"></mat-row>
   </mat-table>
   <mat-toolbar class="row">
-    <div class="col-6">
+    <div class="col-6" fxLayoutAlign="center">
         Total
     </div>
     <div class="col-6" fxLayoutAlign="center">
@@ -23,4 +23,4 @@
   </mat-toolbar>
 </div>
 
-<app-movimientos [row]="idCuenta" *ngIf="idCuenta != null"></app-movimientos>
+<app-movimientos [idCuenta]="idCuenta" *ngIf="idCuenta != null"></app-movimientos>

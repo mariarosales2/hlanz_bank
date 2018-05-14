@@ -1,5 +1,5 @@
 package com.hlanz.bank.business.domain;
-// Generated 06-abr-2018 19:07:19 by Hibernate Tools 5.2.8.Final
+// Generated 14-may-2018 19:18:13 by Hibernate Tools 5.2.8.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,7 +23,7 @@ public class Usuarios implements java.io.Serializable {
 	private String nombre;
 	private String apellidos;
 	private String dni;
-	private Integer teléfono;
+	private Integer telefono;
 	private String email;
 	private int pin;
 	private Set<Cuentas> cuentases = new HashSet<Cuentas>(0);
@@ -38,12 +38,12 @@ public class Usuarios implements java.io.Serializable {
 		this.pin = pin;
 	}
 
-	public Usuarios(String nombre, String apellidos, String dni, Integer teléfono, String email, int pin,
+	public Usuarios(String nombre, String apellidos, String dni, Integer telefono, String email, int pin,
 			Set<Cuentas> cuentases) {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.dni = dni;
-		this.teléfono = teléfono;
+		this.telefono = telefono;
 		this.email = email;
 		this.pin = pin;
 		this.cuentases = cuentases;
@@ -88,13 +88,13 @@ public class Usuarios implements java.io.Serializable {
 		this.dni = dni;
 	}
 
-	@Column(name = "teléfono")
-	public Integer getTeléfono() {
-		return this.teléfono;
+	@Column(name = "telefono")
+	public Integer getTelefono() {
+		return this.telefono;
 	}
 
-	public void setTeléfono(Integer teléfono) {
-		this.teléfono = teléfono;
+	public void setTelefono(Integer telefono) {
+		this.telefono = telefono;
 	}
 
 	@Column(name = "email", length = 50)

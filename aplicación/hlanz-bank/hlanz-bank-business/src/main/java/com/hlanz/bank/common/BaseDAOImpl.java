@@ -16,8 +16,13 @@ public class BaseDAOImpl implements com.hlanz.bank.common.BaseDAO{
 
 	@Override
 	public <T> Object buscarId(Object id, Class<T> clase) {
-		em.find((Class<T>) id, clase);
-		return null;
+		return em.find((Class<T>) id, clase);
+	}
+	
+	@Override
+	public Object merge(Object o) {
+		em.merge(o);
+		return o;
 	}
 	
 	

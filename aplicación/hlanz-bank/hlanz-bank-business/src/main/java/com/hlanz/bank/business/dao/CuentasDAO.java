@@ -14,6 +14,8 @@ import com.hlanz.bank.business.domain.Movimientos;
  */
 public interface CuentasDAO {
 	
+	public Cuentas crearCuenta(Cuentas cuenta);
+	
 	public List<Cuentas> buscarPorUsuario(int id);
 	
 	public Cuentas buscarPorNumero(String cuenta);

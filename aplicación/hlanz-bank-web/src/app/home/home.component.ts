@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NoticiasService } from '../services/noticias.service';
-import { Noticias } from '../model/noticias';
+import { NoticiasService } from '../shared/services/noticias.service';
+import { Noticias } from '../shared/model/noticias.model';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(private infoService : NoticiasService) { }
   
   getNoticias(){
-    this.infoService.getInfo()
+    this.infoService.getNoticias()
       .subscribe(data => this.noticias = data.slice(0,3));
   }
 

@@ -1,0 +1,40 @@
+<div class="contenedor" fxLayoutAlign="center" fxLayout="column">
+  <h3>Hazte Cliente</h3>
+  <form (ngSubmit)="registrar()">
+      <div class="row">
+          <div class="form-group col-lg-6 col-sm-12">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" id="nombre" maxlength="50" 
+                required matInput [(ngModel)]="usuario.nombre" name="nombre">
+          </div>
+          <div class="form-group col-lg-6 col-sm-12">
+              <label for="apellidos">Apellidos</label>
+              <input type="text" class="form-control" id="apellidos" maxlength="50" 
+                required matInput [(ngModel)]="usuario.apellidos" name="apellidos">
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="form-group" class="col-lg-6 col-sm-12">
+              <label for="dni">DNI</label>
+              <input type="text" class="form-control" id="dni" maxlength="9" 
+                required matInput [(ngModel)]="usuario.dni" name="dni">
+          </div>
+
+          <div class="col-lg-6 col-sm-12">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" class="form-control" id="importe" 
+                required matInput [(ngModel)]="usuario.telefono" name="telefono">
+          </div> 
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-sm-12">
+          <label for="email">Correo electrónico</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="usuario.email" name="email">
+        </div>
+      </div>
+      <mat-checkbox color="primary" id="check"></mat-checkbox>
+      <label class="form-check-label" for="check">Acepto el envío de datos</label>
+      <button type="submit" class="btn btn-primary" fxLayoutAlign="end">Registrar</button>
+  </form>
+</div>

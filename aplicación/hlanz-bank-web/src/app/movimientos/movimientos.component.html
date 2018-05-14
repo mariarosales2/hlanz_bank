@@ -1,6 +1,6 @@
 <div class="contenedor">
   <h4>Movimientos</h4>
-  <mat-spinner *ngIf="!load"></mat-spinner>
+  <mat-spinner *ngIf="!load" fxLayoutAlign="center center"></mat-spinner>
     <div class="example-container mat-elevation-z8" 
       *ngIf="load" 
       fxLayoutAlign="center center" 
@@ -28,8 +28,13 @@
         </ng-container>
     
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="verMovimiento(row)"></mat-row>
       </mat-table>
+      <tr *ngIf="movimientos.length == 0" fxFlex="100" fxLayoutAlign="center">
+        <td colspan="4" fxLayoutAlign="center">
+          <h5>No hay movimientos</h5>
+        </td>
+      </tr>
 
       <mat-paginator #paginator
                   [pageSize]="10"

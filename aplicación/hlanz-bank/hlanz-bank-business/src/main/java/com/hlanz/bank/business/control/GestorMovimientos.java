@@ -8,5 +8,5 @@ public interface GestorMovimientos {
 
 	public List<Movimientos> buscarMovimientos(int cuenta);
 	
-	public void transferencia(Movimientos mov, String cuenta);
+	public void transferencia(Movimientos mov);
 }

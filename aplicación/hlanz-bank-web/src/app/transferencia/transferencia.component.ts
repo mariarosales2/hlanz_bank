@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Transferencia } from '../model/transferencia.model';
-import { CuentasService } from '../services/cuentas.service';
+import { Movimientos } from '../shared/model/movimientos.model';
+import { CuentasService } from '../shared/services/cuentas.service';
+import { Router } from '@angular/router';
+import { Cuentas } from '../shared/model/cuentas.model';
+import { MovimientosService } from '../shared/services/movimientos.service';
+import { AlertComponent } from '../alert/alert.component';
+import { AlertService } from '../shared/services/alert.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-transferencia',
@@ -8,12 +14,29 @@ import { CuentasService } from '../services/cuentas.service';
   styleUrls: ['./transferencia.component.scss']
 })
 export class TransferenciaComponent implements OnInit {
-  transferencia : Transferencia = new Transferencia();
-  cuentasUsuario : any[];
-  constructor(private cuentas : CuentasService) {
-    this.cuentas.getCuentas(JSON.parse(localStorage.getItem("user")).id)
-      .subscribe(data => this.cuentasUsuario = data);
-   }
+  transferencia : Movimientos;
+  cuentasUsuario : Cuentas[];
+  constructor(private cuentas : CuentasService, 
+              private movimientos : MovimientosService, 
+              private alert : AlertService,
+              private route : Router) {
+    this.cuentas.getCuentas(Number.parseInt(localStorage.getItem("user")))
+      .subscribe((data : Cuentas[]) => this.cuentasUsuario = data, error=> this.route.navigate(['404']));
+  }
+
+  transferir(){
+    this.movimientos.transferir(this.transferencia)
+      .subscribe(data => {
+        AlertComponent.titulo = "Transferencia realizada",
+        AlertComponent.body = "La transferencia se ha realizado con éxito.",
+        this.alert.openDialog(AlertComponent.titulo, AlertComponent.body)
+        },
+        (error : HttpErrorResponse) => {
+          AlertComponent.titulo = "Error",
+          AlertComponent.body = "La transferencia no se ha podido realizar.\n" + error.message
+        }
+      );
+  }
 
   ngOnInit() {
   }

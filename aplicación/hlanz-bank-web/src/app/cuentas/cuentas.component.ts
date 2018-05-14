@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Inject, Output } from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import { CuentasService } from '../services/cuentas.service';
-import { Cuentas } from '../model/Cuentas';
+import { CuentasService } from '../shared/services/cuentas.service';
+import { Cuentas } from '../shared/model/cuentas.model';
 import { Router } from '@angular/router';
-import { MovimientosService } from '../services/movimientos.service';
+import { MovimientosService } from '../shared/services/movimientos.service';
 
 @Component({
   selector: 'app-cuentas',
@@ -20,16 +20,17 @@ export class CuentasComponent implements OnInit{
 
   constructor(private cuentasService : CuentasService, 
               private route : Router) {
-    this.getCuentas();
+    this.total = 0;
   }
   
   getCuentas() {
-    this.cuentasService.getCuentas(JSON.parse(localStorage.getItem("user")).id)
+    this.cuentasService.getCuentas(localStorage.getItem("user"))
       .subscribe(row => {
         this.cuentas = row;
         this.dataSource = new MatTableDataSource(this.cuentas);
-        for(var i in this.cuentas)
-          this.total += this.cuentas[i].saldo;
+        for(var i in this.cuentas){
+          this.total = this.cuentas[i].saldo;
+        }
       });
   }
 

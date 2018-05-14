@@ -1,8 +1,10 @@
 package com.hlanz.bank.business.domain;
-// Generated 06-abr-2018 19:07:19 by Hibernate Tools 5.2.8.Final
+// Generated 14-may-2018 19:18:13 by Hibernate Tools 5.2.8.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "info", catalog = "hlanz_bank")
 public class Info implements java.io.Serializable {
 
-	private int id;
+	private Integer id;
 	private String imagen;
 	private String titulo;
 	private String body;
@@ -21,21 +23,21 @@ public class Info implements java.io.Serializable {
 	public Info() {
 	}
 
-	public Info(int id, String imagen, String titulo, String body) {
-		this.id = id;
+	public Info(String imagen, String titulo, String body) {
 		this.imagen = imagen;
 		this.titulo = titulo;
 		this.body = body;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

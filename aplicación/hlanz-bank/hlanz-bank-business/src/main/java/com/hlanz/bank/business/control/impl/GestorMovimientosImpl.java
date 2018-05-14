@@ -27,23 +27,25 @@ public class GestorMovimientosImpl implements GestorMovimientos{
 	}
 
 	@Override
-	public void transferencia(Movimientos mov, String cuenta) {
-		Cuentas destino = cuentasDAO.buscarPorNumero(mov.getCuentas().getNumero()); //Busca cuenta destino
-		mov.setSaldoActual(destino.getSaldo()+mov.getMovimiento()); //Aumento saldo movimiento
-		mov.setFecha(new Date());
-		mov.setCuentas(destino);
-		movimientosDAO.crear(mov); //Movimiento recibo dinero
-		cuentasDAO.transferir(destino, mov.getSaldoActual());//Aumento saldo cuenta destinatario
+	public void transferencia(Movimientos mov) {
+		Cuentas destino = cuentasDAO.buscarPorNumero(mov.getCuentasByCuentaReceptora().getNumero()); //Busca cuenta destino
+		if(destino != null) {
+			mov.setSaldoActual(destino.getSaldo()+mov.getMovimiento()); //Aumento saldo movimiento
+			mov.setFecha(new Date());
+			mov.setCuentasByCuentaReceptora(destino);
+			movimientosDAO.crear(mov); //Movimiento recibo dinero
+			cuentasDAO.transferir(destino, mov.getSaldoActual());//Aumento saldo cuenta destinatario
+		}
 		
 		//------------------------------------------------------------
 		
-		Cuentas origen = cuentasDAO.buscarPorNumero(cuenta);
+		Cuentas origen = cuentasDAO.buscarPorNumero(mov.getCuentasByCuentaEmisora().getNumero());
 		Movimientos movEmisor = new Movimientos();
 		movEmisor.setConcepto(mov.getConcepto());
 		movEmisor.setFecha(mov.getFecha());
 		movEmisor.setSaldoActual(origen.getSaldo()-mov.getMovimiento());
 		movEmisor.setMovimiento(-mov.getMovimiento());
-		movEmisor.setCuentas(origen);
+		movEmisor.setCuentasByCuentaEmisora(origen);
 		movimientosDAO.crear(movEmisor);
 		cuentasDAO.transferir(origen, movEmisor.getSaldoActual()); //Retirada dinero cuenta origen
 	}

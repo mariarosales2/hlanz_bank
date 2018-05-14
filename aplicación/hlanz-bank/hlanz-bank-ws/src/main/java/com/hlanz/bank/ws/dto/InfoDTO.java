@@ -10,7 +10,7 @@ public class InfoDTO {
 	private String titulo;
 	private String body;
 	
-	public InfoDTO toDTO(Info info) {
+	public static InfoDTO toDTO(Info info) {
 		InfoDTO dto = new InfoDTO();
 		dto.setId(info.getId());
 		dto.setImagen(info.getImagen());
@@ -20,16 +20,24 @@ public class InfoDTO {
 		return dto;
 	}
 	
-	public InfoDTO[] toDTOListado(List<Info> lista) {
+	public static InfoDTO[] toDTOListado(List<Info> lista) {
 		InfoDTO[] listaDTO = new InfoDTO[lista.size()];
-		InfoDTO dto = new InfoDTO();
 		int i = 0;
 		
 		for(Info info : lista) {
-			listaDTO[i++] = dto.toDTO(info);
+			listaDTO[i++] = InfoDTO.toDTO(info);
 		}
 		
 		return listaDTO;
+	}
+	
+	public static Info toDomain(InfoDTO dto) {
+		Info domain = new Info();
+		domain.setTitulo(dto.getTitulo());
+		domain.setBody(dto.getBody());
+		domain.setImagen(dto.getImagen());
+		
+		return domain;
 	}
 	
 	public int getId() {

@@ -9,22 +9,21 @@
       </span>
     </button>
     
-    <div class="collapse navbar-collapse" id="navbar" *ngIf=!sesion>
+    <div class="collapse navbar-collapse" id="navbar" *ngIf="!sesion && !admin">
       <ul class="navbar-nav  ml-auto">
         <li class="nav-item active" *ngFor="let element of elementos">
           <a class="nav-link" routerLink={{element.link}}> {{element.name}} </a>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link btn" routerLink="registro">Hazte cliente</button>
         </li>
         <li class="nav-item dropdown">
           <button class="btn nav-link" data-toggle="dropdown" aria-haspopup="true">
             Acceso clientes
           </button>
           <div class="dropdown-menu grey">
-            <form class="form-group" 
-              method="post" 
-              #formulario="ngForm" 
-              (ngSubmit)="formulario.form.valid && autenticar()">
-              <input type="text" placeholder="Usuario" #dni="ngModel" name="dni" [(ngModel)]="login.dni" required/>
-              <br/>
+            <form method="post" #formulario="ngForm" (ngSubmit)="autenticar()" fxLayout="column">
+              <input placeholder="Usuario" name="dni" [(ngModel)]="login.dni" required matInput>
               <input type="password" placeholder="PIN" #pin="ngModel" maxlength="4" name="pin" [(ngModel)]="login.pin" required/>
               <br/>
               <div class="alert alert-danger" role="alert" *ngIf="error">Usuario incorrecto</div>
@@ -36,7 +35,7 @@
     </div>
 
 
-    <div class="collapse navbar-collapse" id="navbar" *ngIf=sesion>
+    <div class="collapse navbar-collapse" id="navbar" *ngIf="sesion && !admin">
       <ul class="navbar-nav  ml-auto">
         <li class="nav-item active" *ngFor="let element of elementos">
           <a class="nav-link" routerLink={{element.link}}> {{element.name}} </a>
@@ -49,4 +48,4 @@
       </ul>
     </div>
 </nav>
-<mat-progress-bar mode="indeterminate" *ngIf="load"></mat-progress-bar>
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>

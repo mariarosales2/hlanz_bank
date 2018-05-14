@@ -14,10 +14,25 @@ public class GestorInfoImpl implements GestorInfo {
 	
 	@Inject
 	InfoDAO infoDAO;
+	
+	@Override
+	public void crear(Info noticia) {
+		infoDAO.crear(noticia);
+	}
 
 	@Override
 	public List<Info> getInfo() {
 		return infoDAO.getInfo();
+	}
+
+	@Override
+	public Info buscarNoticiaClave(int id) {
+		return infoDAO.buscarPorId(id);
+	}
+	
+	@Override
+	public void modificar(Info noticia) {
+		infoDAO.modificar(noticia);
 	}
 
 }

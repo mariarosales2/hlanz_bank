@@ -1,66 +1,61 @@
 import { Component, OnInit } from '@angular/core';
 import { interceptingHandler } from '@angular/common/http/src/module';
-import { User } from '../model/user';
-import { UserService } from '../services/user.service';
-import { isUndefined } from 'util';
-import { StorageService } from '../services/storage.service';
+import { Usuario } from '../shared/model/usuario.model';
+import { UserService } from '../shared/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Login } from '../model/login';
+import { Login } from '../shared/model/login.model';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
-  providers: [ UserService, StorageService ]
+  providers: [ UserService]
 })
 export class NavComponent implements OnInit {
   elementos : Elementos[];
-  usuario : User;
+  usuario : Usuario;
   login : Login = new Login();
-  load : boolean = false;
+  loading : boolean = false;
   error : boolean = false;
-  public sesion = false;
+  admin : boolean;
+  sesion : boolean;
 
   constructor(private userService : UserService,
-              private storageService : StorageService,
               private route: ActivatedRoute,
               private router: Router) {
+    this.admin = false;
+    this.sesion = UserService.isAuthenticated();
   }
 
   
   autenticar(){
-    this.load = true;
-    this.usuario = null;
+    this.loading = true;
+
     this.userService.login(this.login)
-    .subscribe(user => {
-        localStorage.setItem("user", JSON.stringify(user));
-        this.comprobarLogin();
+      .subscribe((user : Usuario) => {
+        localStorage.setItem("user", user.idUsuario.toString());
+        this.sesion = UserService.isAuthenticated();
         this.comprobarNav();
-        this.load = false;
-    }, error => {
+        this.loading = false;
+      }, error => {
         this.error = true;
-        this.load = false;
+        this.loading = false;
       });
   }
 
   logout(){
     localStorage.clear();
-    this.sesion = false;
+    this.sesion = UserService.isAuthenticated();
     this.comprobarNav();
     this.router.navigate(['']);
-  }
-
-  comprobarLogin(){
-    if(localStorage.getItem("user"))
-      this.sesion = true;
   }
 
   comprobarNav(){
     if(this.sesion){
       this.elementos = [
-        {name : "Inicio" , link : ""},
         {name : "Movimientos" , link : "cuentas"},
-        {name : "Transferencias" , link : "transferencia"}
+        {name : "Transferencias" , link : "transferencia"},
+        {name : "Mi cuenta" , link : "perfil"}
       ]
     }else{
       this.elementos = [
@@ -71,8 +66,9 @@ export class NavComponent implements OnInit {
     }
   }
 
-    ngOnInit() {
-    this.comprobarLogin();
+  ngOnInit() {
+    if(location.href.indexOf("admin") > -1)
+      this.admin = true;
     this.comprobarNav();
   }
 }

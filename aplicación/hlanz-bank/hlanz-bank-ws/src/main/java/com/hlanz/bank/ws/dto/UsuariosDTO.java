@@ -8,28 +8,30 @@ public class UsuariosDTO {
 	private String nombre;
 	private String apellidos;
 	private String dni;
-	private Integer teléfono;
+	private Integer pin;
+	private Integer telefono;
 	private String email;
 	
 	public static UsuariosDTO toDTO(Usuarios domain) {
 		UsuariosDTO dto = new UsuariosDTO();
+		
 		dto.setIdUsuario(domain.getIdUsuario());
 		dto.setNombre(domain.getNombre());
 		dto.setApellidos(domain.getApellidos());
 		dto.setEmail(domain.getEmail());
-		dto.setTeléfono(domain.getTeléfono());
+		dto.setTelefono(domain.getTelefono());
 		dto.setDni(domain.getDni());
 		
 		return dto;
 	}
 	
-	public Usuarios toDomain(UsuariosDTO dto) {
+	public static Usuarios toDomain(UsuariosDTO dto) {
 		Usuarios domain = new Usuarios();
-		domain.setIdUsuario(dto.getIdUsuario());
+		
 		domain.setNombre(dto.getNombre());
 		domain.setApellidos(dto.getApellidos());
 		domain.setEmail(dto.getEmail());
-		domain.setTeléfono(dto.getTeléfono());
+		domain.setTelefono(dto.getTelefono());
 		domain.setDni(dto.getDni());
 		
 		return domain;
@@ -65,11 +67,11 @@ public class UsuariosDTO {
 		return dni;
 	}
 
-	public Integer getTeléfono() {
-		return teléfono;
+	public Integer getTelefono() {
+		return telefono;
 	}
-	public void setTeléfono(Integer teléfono) {
-		this.teléfono = teléfono;
+	public void setTelefono(Integer telefono) {
+		this.telefono = telefono;
 	}
 	
 	public String getEmail() {
@@ -77,6 +79,14 @@ public class UsuariosDTO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Integer getPin() {
+		return pin;
+	}
+
+	public void setPin(Integer pin) {
+		this.pin = pin;
 	}
 	
 	

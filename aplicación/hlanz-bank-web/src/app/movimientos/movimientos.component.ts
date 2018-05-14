@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { Movimientos } from '../model/movimientos.model';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { MovimientosService } from '../services/movimientos.service';
+import { Movimientos } from '../shared/model/movimientos.model';
+import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatDialogConfig } from '@angular/material';
+import { MovimientosService } from '../shared/services/movimientos.service';
 import { CuentasComponent } from '../cuentas/cuentas.component';
 import { Router } from '@angular/router';
-import { CuentasService } from '../services/cuentas.service';
+import { CuentasService } from '../shared/services/cuentas.service';
+import { MovimientoDialogComponent } from '../movimiento-dialog/movimiento-dialog.component';
 
 @Component({
   selector: 'app-movimientos',
@@ -12,16 +13,17 @@ import { CuentasService } from '../services/cuentas.service';
   styleUrls: ['./movimientos.component.scss']
 })
 export class MovimientosComponent implements OnInit {
-  movimientos : Movimientos[];
+  movimientos : Movimientos[] = [];
   displayedColumns = ["fecha","concepto","importe", "saldo"];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  @Input() row : number;
+  @Input() idCuenta : number;
   dataSource = new MatTableDataSource();
   load = false;
 
-  constructor(private movServices : MovimientosService, private route : Router){
-    this.getMovimientos(0);
+  constructor(private movServices : MovimientosService,
+    private route : Router,
+    private dialog : MatDialog){
   }
 
   getMovimientos(id : number){
@@ -35,10 +37,21 @@ export class MovimientosComponent implements OnInit {
         });
   }
 
+  verMovimiento(data : any){
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "80%";
+    dialogConfig.data = data;
+
+    this.dialog.open(MovimientoDialogComponent, dialogConfig);
+    console.log(data);
+  }
+
 
   ngOnInit() {
-    console.log(this.row);
-    this.getMovimientos(this.row);
+    this.getMovimientos(this.idCuenta);
   }
 
 }

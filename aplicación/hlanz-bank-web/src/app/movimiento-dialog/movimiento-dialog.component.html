@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Ver movimiento</h2>
+
+<mat-dialog-content #content>
+        Emisor
+        <input matInput disabled
+               [value]="data.cuentaEmisora.numero">
+        Receptor
+        <input matInput disabled
+               [value]="data.cuentaReceptora.numero">
+        Concepto
+        <input matInput disabled
+               [value]="data.concepto">
+
+        Importe
+        <input matInput disabled
+               [value]="data.movimiento"+"€">
+
+        Fecha emisión
+        <input matInput disabled
+               [value]="data.fecha">
+ 
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary btn"(click)="save()">Guardar justificante</button>
+</mat-dialog-actions>

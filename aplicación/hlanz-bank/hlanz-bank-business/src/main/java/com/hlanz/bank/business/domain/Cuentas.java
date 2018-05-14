@@ -1,5 +1,5 @@
 package com.hlanz.bank.business.domain;
-// Generated 06-abr-2018 19:07:19 by Hibernate Tools 5.2.8.Final
+// Generated 14-may-2018 19:18:13 by Hibernate Tools 5.2.8.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,7 +25,8 @@ public class Cuentas implements java.io.Serializable {
 	private Usuarios usuarios;
 	private String numero;
 	private float saldo;
-	private Set<Movimientos> movimientoses = new HashSet<Movimientos>(0);
+	private Set<Movimientos> movimientosesForCuentaEmisora = new HashSet<Movimientos>(0);
+	private Set<Movimientos> movimientosesForCuentaReceptora = new HashSet<Movimientos>(0);
 
 	public Cuentas() {
 	}
@@ -36,11 +37,13 @@ public class Cuentas implements java.io.Serializable {
 		this.saldo = saldo;
 	}
 
-	public Cuentas(Usuarios usuarios, String numero, float saldo, Set<Movimientos> movimientoses) {
+	public Cuentas(Usuarios usuarios, String numero, float saldo, Set<Movimientos> movimientosesForCuentaEmisora,
+			Set<Movimientos> movimientosesForCuentaReceptora) {
 		this.usuarios = usuarios;
 		this.numero = numero;
 		this.saldo = saldo;
-		this.movimientoses = movimientoses;
+		this.movimientosesForCuentaEmisora = movimientosesForCuentaEmisora;
+		this.movimientosesForCuentaReceptora = movimientosesForCuentaReceptora;
 	}
 
 	@Id
@@ -83,13 +86,22 @@ public class Cuentas implements java.io.Serializable {
 		this.saldo = saldo;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cuentas")
-	public Set<Movimientos> getMovimientoses() {
-		return this.movimientoses;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cuentasByCuentaEmisora")
+	public Set<Movimientos> getMovimientosesForCuentaEmisora() {
+		return this.movimientosesForCuentaEmisora;
 	}
 
-	public void setMovimientoses(Set<Movimientos> movimientoses) {
-		this.movimientoses = movimientoses;
+	public void setMovimientosesForCuentaEmisora(Set<Movimientos> movimientosesForCuentaEmisora) {
+		this.movimientosesForCuentaEmisora = movimientosesForCuentaEmisora;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cuentasByCuentaReceptora")
+	public Set<Movimientos> getMovimientosesForCuentaReceptora() {
+		return this.movimientosesForCuentaReceptora;
+	}
+
+	public void setMovimientosesForCuentaReceptora(Set<Movimientos> movimientosesForCuentaReceptora) {
+		this.movimientosesForCuentaReceptora = movimientosesForCuentaReceptora;
 	}
 
 }

@@ -15,7 +15,7 @@ public class MovimientosDAOImpl extends BaseDAOImpl implements MovimientosDAO{
 
 	@Override
 	public List<Movimientos> buscarMovimientos(int cuenta) {
-		String consulta = "select o from Movimientos as o where cuentas.idCuenta = :cuenta";
+		String consulta = "select o from Movimientos as o where cuentasByCuentaEmisora.idCuenta = :cuenta or cuentasByCuentaReceptora.idCuenta = :cuenta";
 		Query query = em.createQuery(consulta);
 		query.setParameter("cuenta", cuenta);
 		try {

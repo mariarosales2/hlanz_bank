@@ -1,5 +1,9 @@
-nav {
+nav.navbar {
     border-bottom: 4px solid #008BCD;
+    padding: 0 40px;
+    li {
+        margin: auto 3px;
+    }
 }
 div.dropdown-menu.show {
     padding: 20px;
@@ -10,13 +14,14 @@ div.dropdown-menu.show {
     border: none;
 }
 
-
 @media screen and (max-width: 768px){
     .navbar-nav {
         text-align: center; 
+        li {
+            margin: 5px auto;
+        }
         .btn {
-            margin-left: auto;
-            margin-right: auto; 
+            margin: 5px auto;
         }
     }
     div.dropdown-menu.show {

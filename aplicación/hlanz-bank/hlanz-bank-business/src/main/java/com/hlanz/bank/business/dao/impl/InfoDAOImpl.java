@@ -14,6 +14,16 @@ import com.hlanz.bank.common.BaseDAOImpl;
 public class InfoDAOImpl extends BaseDAOImpl implements InfoDAO{
 
 	@Override
+	public Info crear(Info noticia) {
+		return (Info) super.crear(noticia);
+	}
+	
+	@Override
+	public Info buscarPorId(int id) {
+		return (Info) super.buscarId(id, Info.class);
+	}
+	
+	@Override
 	public List<Info> getInfo() {
 		String consulta = "select o from Info as o";
 		Query query = em.createQuery(consulta);
@@ -23,6 +33,10 @@ public class InfoDAOImpl extends BaseDAOImpl implements InfoDAO{
 			return null;
 		}
 	}
-
+	
+	@Override
+	public Info modificar(Info noticia) {
+		return (Info) super.merge(noticia);
+	}
 	
 }

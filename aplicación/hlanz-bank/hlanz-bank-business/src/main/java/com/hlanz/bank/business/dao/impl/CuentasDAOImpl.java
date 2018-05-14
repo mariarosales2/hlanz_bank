@@ -12,6 +12,11 @@ import com.hlanz.bank.business.domain.Movimientos;
 public class CuentasDAOImpl extends com.hlanz.bank.common.BaseDAOImpl implements com.hlanz.bank.business.dao.CuentasDAO{
 	
 	@Override
+	public Cuentas crearCuenta(Cuentas cuenta) {
+		return (Cuentas) super.crear(cuenta);
+	}
+	
+	@Override
 	public List<Cuentas> buscarPorUsuario(int id) {
 		String consulta = "select o from Cuentas as o where usuarios.id = :id";
 		Query query = em.createQuery(consulta);
