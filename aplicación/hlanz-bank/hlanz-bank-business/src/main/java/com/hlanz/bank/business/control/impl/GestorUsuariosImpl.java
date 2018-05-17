@@ -33,6 +33,11 @@ public class GestorUsuariosImpl implements com.hlanz.bank.business.control.Gesto
 	}
 	
 	@Override
+	public Usuarios buscarPorId(int id) {
+		return usuarioDAO.buscarPorId(id);
+	}
+	
+	@Override
 	public void registrarUsuario(Usuarios usuario) {
 		try {
 		if(usuarioDAO.buscarPorDni(usuario.getDni()) == null){

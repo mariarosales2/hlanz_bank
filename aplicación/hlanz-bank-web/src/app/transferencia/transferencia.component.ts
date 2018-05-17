@@ -14,14 +14,16 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./transferencia.component.scss']
 })
 export class TransferenciaComponent implements OnInit {
-  transferencia : Movimientos;
+  transferencia : Movimientos = new Movimientos();
   cuentasUsuario : Cuentas[];
   constructor(private cuentas : CuentasService, 
               private movimientos : MovimientosService, 
               private alert : AlertService,
               private route : Router) {
     this.cuentas.getCuentas(Number.parseInt(localStorage.getItem("user")))
-      .subscribe((data : Cuentas[]) => this.cuentasUsuario = data, error=> this.route.navigate(['404']));
+      .subscribe(
+        (data : Cuentas[]) =>{this.cuentasUsuario = data, console.log(this.cuentasUsuario)} , 
+        error=> this.route.navigate(['404']));
   }
 
   transferir(){

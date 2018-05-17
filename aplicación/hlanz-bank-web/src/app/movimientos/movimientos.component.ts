@@ -46,7 +46,6 @@ export class MovimientosComponent implements OnInit {
     dialogConfig.data = data;
 
     this.dialog.open(MovimientoDialogComponent, dialogConfig);
-    console.log(data);
   }
 
 

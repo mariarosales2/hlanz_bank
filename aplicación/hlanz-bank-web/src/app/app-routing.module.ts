@@ -13,7 +13,6 @@ import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [ 
   { path: '', redirectTo: 'inicio', pathMatch : 'full' },
-  /* { path: '**', redirectTo: 'inicio' }, */
   { path: 'inicio', component: HomeComponent},
   { path: 'info/:id', component: NoticiasComponent},
   { path: 'cuentas', component: CuentasComponent, canActivate: [AuthGuard] },
@@ -21,7 +20,8 @@ const routes: Routes = [
   { path : 'transferencia' , component : TransferenciaComponent, canActivate: [AuthGuard]},
   { path: 'registro' , component: RegistroComponent},
   { path: 'admin', component: AdminComponent},
-  { path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard]}
+  { path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard]},
+  { path: '**', redirectTo: 'inicio' }
 ];
 
 @NgModule({

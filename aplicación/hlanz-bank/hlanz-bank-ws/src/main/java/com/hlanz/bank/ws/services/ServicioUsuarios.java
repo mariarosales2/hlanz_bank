@@ -18,6 +18,10 @@ public interface ServicioUsuarios {
 	public UsuariosDTO autenticar(String userEncode);
 	
 	@POST
+	@Path("/buscar")
+	public UsuariosDTO buscarPorId(int id);
+	
+	@POST
 	@Path("/registro")
 	public void crearUsuario(UsuariosDTO usuario);
 	

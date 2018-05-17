@@ -1,26 +1,29 @@
-<div class="contenedor mat-elevation-z8" fxLayoutAlign="center" fxLayout="column" *ngIf="idCuenta == null">
-  <mat-table #table [dataSource]="dataSource" fxFlex=100>
-    <ng-container matColumnDef="numero">
-      <mat-header-cell *matHeaderCellDef> IBAN </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.numero}} </mat-cell>
-    </ng-container>
+<div class="container">
+  <h4>Cuentas</h4>
+  <div class="mat-elevation-z8" fxLayoutAlign="center" fxLayout="column" *ngIf="idCuenta == null">
+    <mat-table #table [dataSource]="dataSource" fxFlex=100>
+      <ng-container matColumnDef="numero">
+        <mat-header-cell *matHeaderCellDef> IBAN </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.numero}} </mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="saldo">
-      <mat-header-cell *matHeaderCellDef> SALDO </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.saldo}} € </mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="saldo">
+        <mat-header-cell *matHeaderCellDef> SALDO </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.saldo}} € </mat-cell>
+      </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="idCuenta = row.idCuenta"></mat-row>
-  </mat-table>
-  <mat-toolbar class="row">
-    <div class="col-6" fxLayoutAlign="center">
-        Total
-    </div>
-    <div class="col-6" fxLayoutAlign="center">
-      {{total}}€
-    </div>
-  </mat-toolbar>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="idCuenta = row.idCuenta"></mat-row>
+    </mat-table>
+    <mat-toolbar class="row">
+      <div class="col-6" fxLayoutAlign="center">
+          Total
+      </div>
+      <div class="col-6" fxLayoutAlign="center">
+        {{total}}€
+      </div>
+    </mat-toolbar>
+  </div>
+
+  <app-movimientos [idCuenta]="idCuenta" *ngIf="idCuenta != null"></app-movimientos>
 </div>
-
-<app-movimientos [idCuenta]="idCuenta" *ngIf="idCuenta != null"></app-movimientos>

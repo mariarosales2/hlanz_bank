@@ -4,8 +4,8 @@
         <div class="row">
             <div class="form-group col-6">
                 <label>Origen</label>
-                <mat-select class="form-control" [value]="transferencia.cuentaEmisora">
-                    <mat-option *ngFor="let cuenta of cuentasUsuario">
+                <mat-select class="form-control" name="idCuenta" [(ngModel)]="transferencia.cuentaEmisora">
+                    <mat-option [value]="cuenta.id" *ngFor="let cuenta of cuentasUsuario" >
                         {{cuenta.numero}}
                     </mat-option>
                 </mat-select>
@@ -15,22 +15,22 @@
                 <input type="text" class="form-control" 
                         id="cuenta" aria-describedby="emailHelp" 
                         maxlength="20" required matInput
-                        [(ngModel)]="transferencia.movimiento.cuenta"
-                        value="ES">
+                        [(ngModel)]="transferencia.cuentaReceptora"
+                        value="ES" name="cuentaReceptora">
                 <small id="emailHelp" class="form-text text-muted">Introduce el IBAN sin espacios.</small>
             </div>
         </div>
 
         <div class="row">
-            <div class="form-group" class="col-8">
+            <div class="form-group" class="col-6">
                 <label for="concepto">Concepto</label>
-                <input type="text" class="form-control" id="concepto" [(ngModel)]="transferencia.movimiento.concepto">
+                <input type="text" class="form-control" id="concepto" [(ngModel)]="transferencia.concepto" name="concepto">
             </div>
 
-            <div class="col-4">
+            <div class="col-6">
                 <label for="importe">Importe</label>
                 <div class="form-group input-group">
-                    <input type="number" class="form-control" id="importe" [(ngModel)]="transferencia.movimiento.movimiento">
+                    <input type="number" class="form-control" id="importe" [(ngModel)]="transferencia.movimiento" name="movimiento">
                     <div class="input-group-append" fxLayoutAlign="end">
                         <span class="input-group-text">€</span>
                     </div>

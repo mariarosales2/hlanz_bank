@@ -1,7 +1,9 @@
-export interface Movimientos {
+import { Cuentas } from './cuentas.model';
+
+export class Movimientos {
     fecha : Date;
-    cuentaEmisora : String;
-    cuentaReceptora : String;
+    cuentaEmisora : Cuentas;
+    cuentaReceptora : Cuentas;
     nombreReceptor : String;
     concepto : String;
     movimiento : Number;

@@ -27,6 +27,11 @@ public class ServicioUsuariosImpl implements ServicioUsuarios{
 		Usuarios domain = gestorUsuarios.autenticarUser(FiltroUsuarioDTO.toDomain(usuario));
 		return UsuariosDTO.toDTO(domain);
 	}
+	
+	@Override
+	public UsuariosDTO buscarPorId(int id) {
+		return UsuariosDTO.toDTO(gestorUsuarios.buscarPorId(id));
+	}
 
 	@Override
 	public void crearUsuario(UsuariosDTO usuario) {
