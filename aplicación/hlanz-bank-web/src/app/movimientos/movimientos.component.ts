@@ -42,7 +42,7 @@ export class MovimientosComponent implements OnInit {
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "80%";
+    dialogConfig.width = "75%";
     dialogConfig.data = data;
 
     this.dialog.open(MovimientoDialogComponent, dialogConfig);

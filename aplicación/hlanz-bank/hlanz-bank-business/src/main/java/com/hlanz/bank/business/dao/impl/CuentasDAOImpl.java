@@ -17,6 +17,11 @@ public class CuentasDAOImpl extends com.hlanz.bank.common.BaseDAOImpl implements
 	}
 	
 	@Override
+	public Cuentas buscarPorId(int id) {
+		return (Cuentas) em.find(Cuentas.class, id);
+	}
+	
+	@Override
 	public List<Cuentas> buscarPorUsuario(int id) {
 		String consulta = "select o from Cuentas as o where usuarios.id = :id";
 		Query query = em.createQuery(consulta);

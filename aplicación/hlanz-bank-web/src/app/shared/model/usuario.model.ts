@@ -4,5 +4,7 @@ export class Usuario{
     nombre : String;
     apellidos : String;
     email : String;
-    teléfono : number;
+    telefono : number;
+    displayName : String;
+
 }

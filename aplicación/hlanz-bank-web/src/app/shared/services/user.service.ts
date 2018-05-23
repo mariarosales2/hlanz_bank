@@ -26,12 +26,17 @@ export class UserService {
     return false;
   }
   
+  usuarios() :  Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(CuentasService.host+"services/rest/usuarios/usuarios")
+      .pipe(data => data);
+  }
+
   usuarioId(id : number) : Observable<Usuario>{
     return this.http.post<Usuario>(CuentasService.host+"services/rest/usuarios/buscar", id)
       .pipe(data => data);
   }
 
-  registrar(usuario : Usuario) {
+  crear(usuario : Usuario) {
     return this.http.post(CuentasService.host+"services/rest/usuarios/registro", usuario)
       .pipe( data => data);
   }

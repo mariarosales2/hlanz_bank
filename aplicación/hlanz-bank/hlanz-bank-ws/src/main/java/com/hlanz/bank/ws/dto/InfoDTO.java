@@ -9,6 +9,7 @@ public class InfoDTO {
 	private String imagen;
 	private String titulo;
 	private String body;
+	private String displayName;
 	
 	public static InfoDTO toDTO(Info info) {
 		InfoDTO dto = new InfoDTO();
@@ -16,7 +17,7 @@ public class InfoDTO {
 		dto.setImagen(info.getImagen());
 		dto.setTitulo(info.getTitulo());
 		dto.setBody(info.getBody());
-		
+		dto.setDisplayName(dto.getTitulo());
 		return dto;
 	}
 	
@@ -63,6 +64,12 @@ public class InfoDTO {
 	}
 	public void setBody(String body) {
 		this.body = body;
+	}
+	public void setDisplayName(String name) {
+		this.displayName = name;
+	}
+	public String getDisplayName() {
+		return displayName;
 	}
 	
 }

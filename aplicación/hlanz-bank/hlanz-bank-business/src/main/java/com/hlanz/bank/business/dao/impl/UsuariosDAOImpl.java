@@ -1,5 +1,7 @@
 package com.hlanz.bank.business.dao.impl;
 
+import java.util.List;
+
 import javax.inject.Named;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
@@ -9,6 +11,17 @@ import com.hlanz.bank.common.BaseDAOImpl;
 
 @Named
 public class UsuariosDAOImpl extends BaseDAOImpl implements com.hlanz.bank.business.dao.UsuariosDAO{
+	
+	@Override
+	public List<Usuarios> getUsuarios(){
+		String consulta = "select o from Usuarios as o";
+		Query query = em.createQuery(consulta);
+		try {
+			return (List<Usuarios>) query.getResultList();
+		}catch(NoResultException e) {
+			return null;
+		}
+	}
 	
 	@Override
 	public Usuarios buscarPorId(int id) {

@@ -26,25 +26,27 @@ input {
     border-bottom: 2px solid $dark-grey;
 }
 input:focus {outline: none;}
-
-mat-table{
+div.mat-elevation-z8 {
     width : 100%;
-    overflow: auto;
-    max-height: 500px;
-    text-align: center;
-    mat-header-cell, mat-cell { text-align: center; }
-    mat-header-row { 
-        background: $grey; 
-        border-bottom: 1px stripped $blue;
-        mat-header-cell {
-            color : $dark-grey !important;
-            font-weight: bold !important;
-            font-size: 1.1em !important;
+    mat-table{
+        width : 100%;
+        overflow: auto;
+        max-height: 500px;
+        text-align: center;
+        mat-header-cell, mat-cell { text-align: center; }
+        mat-header-row { 
+            background: $grey; 
+            border-bottom: 1px stripped $blue;
+            mat-header-cell {
+                color : $dark-grey !important;
+                font-weight: bold !important;
+                font-size: 1.1em !important;
+            }
         }
-    }
-    mat-row:hover {
-        background: $grey;
-        cursor: pointer;
+        mat-row:hover {
+            background: $grey;
+            cursor: pointer;
+        }
     }
 }
 footer {border-top: 3px solid $blue;}

@@ -1,5 +1,7 @@
 package com.hlanz.bank.ws.dto;
 
+import java.util.List;
+
 import com.hlanz.bank.business.domain.Usuarios;
 
 public class UsuariosDTO {
@@ -8,9 +10,9 @@ public class UsuariosDTO {
 	private String nombre;
 	private String apellidos;
 	private String dni;
-	private Integer pin;
 	private Integer telefono;
 	private String email;
+	private String displayName;
 	
 	public static UsuariosDTO toDTO(Usuarios domain) {
 		UsuariosDTO dto = new UsuariosDTO();
@@ -21,6 +23,7 @@ public class UsuariosDTO {
 		dto.setEmail(domain.getEmail());
 		dto.setTelefono(domain.getTelefono());
 		dto.setDni(domain.getDni());
+		dto.setDisplayName(dto.getNombre() + " " +dto.getApellidos());
 		
 		return dto;
 	}
@@ -35,6 +38,18 @@ public class UsuariosDTO {
 		domain.setDni(dto.getDni());
 		
 		return domain;
+	}
+	
+	public static UsuariosDTO[] toDTOListado(List<Usuarios> dom) {
+		if(dom == null) return null;
+		
+		int i = 0;
+		UsuariosDTO[] dto = new UsuariosDTO[dom.size()];
+		for(Usuarios u : dom)
+			dto[i++] = UsuariosDTO.toDTO(u);
+		
+		return dto;
+		
 	}
 	
 	public int getIdUsuario() {
@@ -80,13 +95,11 @@ public class UsuariosDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public Integer getPin() {
-		return pin;
+	public void setDisplayName(String name) {
+		this.displayName = name;
 	}
-
-	public void setPin(Integer pin) {
-		this.pin = pin;
+	public String getDisplayName() {
+		return displayName;
 	}
 	
 	

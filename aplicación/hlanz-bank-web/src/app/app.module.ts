@@ -43,7 +43,11 @@ import { AuthGuardService } from './shared/services/auth-guard.service';
 import { UserService } from './shared/services/user.service';
 import { MovimientoDialogComponent } from './movimiento-dialog/movimiento-dialog.component';
 import { AlertService } from './shared/services/alert.service';
+import { NoticiasService } from './shared/services/noticias.service';
+import { TerminosComponent } from './terminos/terminos.component';
+import { TerminosService } from './shared/services/terminos.service';
 // import { JwtHelperService } from '@auth0/angular-jwt';
+import { BuscaPipe } from './shared/filtro.pipe';
 
 
 @NgModule({
@@ -60,7 +64,9 @@ import { AlertService } from './shared/services/alert.service';
     AlertComponent,
     PerfilComponent,
     AdminComponent,
-    MovimientoDialogComponent
+    MovimientoDialogComponent,
+    TerminosComponent,
+    BuscaPipe
   ],
   imports: [
     BrowserModule,
@@ -85,8 +91,11 @@ import { AlertService } from './shared/services/alert.service';
     AppRoutingModule,
     NgbModule.forRoot()
   ],
-  providers: [UserService, CuentasService, MovimientosService, AuthGuardService, AlertService],
+  providers: [UserService, CuentasService, MovimientosService, 
+              AuthGuardService, AlertService, NoticiasService,
+              TerminosService
+            ],
   bootstrap: [AppComponent],
-  entryComponents: [AlertComponent, MovimientoDialogComponent]
+  entryComponents: [AlertComponent, MovimientoDialogComponent, TerminosComponent]
 })
 export class AppModule { }

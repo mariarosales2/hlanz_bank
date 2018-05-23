@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, ElementRef, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import * as jsPdf from 'jspdf';
+import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-movimiento-dialog',
@@ -14,21 +15,8 @@ export class MovimientoDialogComponent implements OnInit {
               public dialogRef: MatDialogRef<MovimientoDialogComponent>) { }
 
   save(){
-    let doc = new jsPdf();
-
-    let content = this.content.nativeElement;
-
-    let elements = {
-      '#editor' : function(element, renderer){
-        return true;
-      }
-    }
-
-    doc.fromHTML(content.innerHTML, 15, 15, {
-      'width' : '190px',
-      'elementHandlers' : elements
-    });
-    doc.save(this.data.fecha);
+    let doc = new jsPdf('l', '', 'C5');
+    doc.addHTML(document.getElementById("content"), 2 , 50 , null , () => { doc.save(this.data.fecha); });
   }
 
   onNoClick(): void {

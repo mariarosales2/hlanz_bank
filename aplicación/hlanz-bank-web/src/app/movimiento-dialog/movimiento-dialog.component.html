@@ -1,26 +1,43 @@
-<h2 mat-dialog-title>Ver movimiento</h2>
-<mat-dialog-content #content id="content">
-        Origen
-        <input matInput disabled
-               [value]="data.cuentaEmisora.numero">
-        Receptor
-        <input matInput disabled
-               [value]="data.cuentaReceptora.numero">
-        Concepto
-        <input matInput disabled
-               [value]="data.concepto">
-        Importe
-        <input type="number"id="importe" [value]="data.movimiento" disabled>
-        <div class="input-group-append" fxLayoutAlign="end">
-            <span class="input-group-text">€</span>
+<div id="content" fxLayout="column" fxLayoutAlign="center start">
+<h2 mat-dialog-title>Detalles del movimiento</h2>
+<mat-dialog-content>
+    <div class="row">
+        <div class="col-6">
+            Origen
+            <input matInput disabled class="form-control"
+                   [value]="data.cuentaEmisora.numero">
         </div>
-
-        Fecha de operación
-        <input matInput disabled
-               [value]="data.fecha | date : 'dd-mm-yyyy' ">
+        <div class="col-6">
+            Receptor
+            <input matInput disabled class="form-control"
+            [value]="data.cuentaReceptora.numero">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h6>Fecha de operación</h6>
+            <input matInput disabled class="form-control"
+            [value]="data.fecha | date : 'dd-MM-yyyy' ">
+        </div>
+        <div class="col-4">
+            Concepto
+            <input matInput disabled class="form-control"
+                   [value]="data.concepto">
+        </div>
+        <div class="col-4">
+            Importe
+            <div class="form-group" fxLayout="row" fxFlex="50">
+                <input type="number"id="importe" [value]="data.movimiento" disabled class="form-control">
+                <div class="input-group-append" fxLayoutAlign="end">
+                    <span class="input-group-text">€</span>
+                </div>
+            </div>
+        </div>
+    </div>
  
 </mat-dialog-content>
+</div>
 <mat-dialog-actions>
-    <button class="mat-raised-button"(click)="onNoClick()">Cerrar</button>
     <button class="mat-raised-button mat-primary btn"(click)="save()">Guardar justificante</button>
+    <button class="mat-raised-button"(click)="onNoClick()">Cerrar</button>
 </mat-dialog-actions>

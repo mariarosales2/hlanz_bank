@@ -48,4 +48,4 @@
       </ul>
     </div>
 </nav>
-<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<mat-progress-bar mode="indeterminate" [hidden]="!loading"></mat-progress-bar>

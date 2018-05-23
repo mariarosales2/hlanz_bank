@@ -15,7 +15,7 @@ export class NavComponent implements OnInit {
   elementos : Elementos[];
   usuario : Usuario;
   login : Login = new Login();
-  loading : boolean = false;
+  static loading : boolean = false;
   error : boolean = false;
   admin : boolean;
   sesion : boolean;
@@ -29,17 +29,18 @@ export class NavComponent implements OnInit {
 
   
   autenticar(){
-    this.loading = true;
+    NavComponent.loading = true;
 
     this.userService.login(this.login)
       .subscribe((user : Usuario) => {
         localStorage.setItem("user", user.idUsuario.toString());
         this.sesion = UserService.isAuthenticated();
         this.comprobarNav();
-        this.loading = false;
+        this.router.navigate(['perfil']);
+        NavComponent.loading = false;
       }, error => {
         this.error = true;
-        this.loading = false;
+        NavComponent.loading = false;
       });
   }
 

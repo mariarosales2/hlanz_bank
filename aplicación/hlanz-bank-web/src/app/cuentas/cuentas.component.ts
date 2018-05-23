@@ -14,6 +14,7 @@ import { MovimientosService } from '../shared/services/movimientos.service';
 export class CuentasComponent implements OnInit{
   displayedColumns = ['numero', 'saldo'];
   cuentas : Cuentas[];
+  load : Boolean = false;
   total : number;
   idCuenta : number = null;
   dataSource = new MatTableDataSource();
@@ -21,6 +22,7 @@ export class CuentasComponent implements OnInit{
   constructor(private cuentasService : CuentasService, 
               private route : Router) {
     this.total = 0;
+
   }
   
   getCuentas() {
@@ -28,6 +30,7 @@ export class CuentasComponent implements OnInit{
       .subscribe(row => {
         this.cuentas = row;
         this.dataSource = new MatTableDataSource(this.cuentas);
+        this.load = true;
         for(var i in this.cuentas){
           this.total = this.cuentas[i].saldo;
         }

@@ -7,6 +7,8 @@ import { MovimientosService } from '../shared/services/movimientos.service';
 import { AlertComponent } from '../alert/alert.component';
 import { AlertService } from '../shared/services/alert.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MatDialog } from '@angular/material';
+import { TerminosComponent } from '../terminos/terminos.component';
 
 @Component({
   selector: 'app-transferencia',
@@ -19,11 +21,18 @@ export class TransferenciaComponent implements OnInit {
   constructor(private cuentas : CuentasService, 
               private movimientos : MovimientosService, 
               private alert : AlertService,
-              private route : Router) {
+              private route : Router,
+              private dialog : MatDialog) {
     this.cuentas.getCuentas(Number.parseInt(localStorage.getItem("user")))
       .subscribe(
         (data : Cuentas[]) =>{this.cuentasUsuario = data, console.log(this.cuentasUsuario)} , 
         error=> this.route.navigate(['404']));
+  }
+
+  openTerminos(){
+    let dialogRef = this.dialog.open(TerminosComponent, {
+      width: '800px'
+    })
   }
 
   transferir(){
@@ -35,7 +44,8 @@ export class TransferenciaComponent implements OnInit {
         },
         (error : HttpErrorResponse) => {
           AlertComponent.titulo = "Error",
-          AlertComponent.body = "La transferencia no se ha podido realizar.\n" + error.message
+          AlertComponent.body = "La transferencia no se ha podido realizar.\n" + error.message,
+          this.alert.openDialog(AlertComponent.titulo, AlertComponent.body)
         }
       );
   }

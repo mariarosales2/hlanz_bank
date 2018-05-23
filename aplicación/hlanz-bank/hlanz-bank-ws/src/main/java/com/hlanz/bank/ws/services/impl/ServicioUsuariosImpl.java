@@ -29,6 +29,11 @@ public class ServicioUsuariosImpl implements ServicioUsuarios{
 	}
 	
 	@Override
+	public UsuariosDTO[] getUsuarios() {
+		return UsuariosDTO.toDTOListado(gestorUsuarios.getUsuarios());
+	}
+	
+	@Override
 	public UsuariosDTO buscarPorId(int id) {
 		return UsuariosDTO.toDTO(gestorUsuarios.buscarPorId(id));
 	}

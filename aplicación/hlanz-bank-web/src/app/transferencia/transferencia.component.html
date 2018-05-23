@@ -37,9 +37,12 @@
                 </div>
             </div> 
         </div>
-
-        <mat-checkbox color="primary" id="check"></mat-checkbox>
-        <label class="form-check-label" for="check">Acepto el envío de datos</label>
+        <div class="row">
+            <div class="col-12 pt-3 pb-3">
+                <mat-checkbox color="primary" id="check" required [checked]="acept"></mat-checkbox>
+                <label class="form-check-label" for="check">Acepto los <span (click)="openTerminos()">términos y condiciones de uso</span></label>
+            </div>
+        </div>
         <button type="submit" class="btn btn-primary" fxLayoutAlign="end">Enviar</button>
     </form>
 </div>

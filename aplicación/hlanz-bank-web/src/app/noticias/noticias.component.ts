@@ -9,15 +9,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./noticias.component.scss']
 })
 export class NoticiasComponent implements OnInit {
-  info : Noticias;
-  constructor(private noticiasService : NoticiasService, private route : ActivatedRoute,
-              private location : Location) { }
+  info : Noticias = new Noticias();
+  id : string;
+  constructor(private noticiasService : NoticiasService, private route : ActivatedRoute) { }
 
   getNoticia(){
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.noticiasService.getNoticia(id)
-    .subscribe(noticia => this.info = noticia);
+    this.id = this.route.snapshot.paramMap.get('id');
+    console.log(this.id);
+      this.noticiasService.getNoticia(Number.parseInt(this.id))
+        .subscribe(noticia => this.info = noticia);
   }
   ngOnInit() {
+    this.getNoticia();
   }
 }

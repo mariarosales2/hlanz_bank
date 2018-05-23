@@ -39,7 +39,7 @@ public class GestorMovimientosImpl implements GestorMovimientos{
 		
 		//------------------------------------------------------------
 		
-		Cuentas origen = cuentasDAO.buscarPorNumero(mov.getCuentasByCuentaEmisora().getNumero());
+		Cuentas origen = cuentasDAO.buscarPorId(mov.getCuentasByCuentaEmisora().getIdCuenta());
 		Movimientos movEmisor = new Movimientos();
 		movEmisor.setConcepto(mov.getConcepto());
 		movEmisor.setFecha(mov.getFecha());

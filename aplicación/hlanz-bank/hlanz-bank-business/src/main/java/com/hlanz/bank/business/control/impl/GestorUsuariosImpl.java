@@ -1,6 +1,7 @@
 package com.hlanz.bank.business.control.impl;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import java.util.Properties;
 
 import javax.inject.Inject;
@@ -33,13 +34,17 @@ public class GestorUsuariosImpl implements com.hlanz.bank.business.control.Gesto
 	}
 	
 	@Override
+	public List<Usuarios> getUsuarios() {
+		return usuarioDAO.getUsuarios();
+	}
+	
+	@Override
 	public Usuarios buscarPorId(int id) {
 		return usuarioDAO.buscarPorId(id);
 	}
 	
 	@Override
 	public void registrarUsuario(Usuarios usuario) {
-		try {
 		if(usuarioDAO.buscarPorDni(usuario.getDni()) == null){
 			usuario.setPin((int) (Math.random()*9999)+1);
 			Usuarios usuarioBD = usuarioDAO.crearUsuario(usuario);
@@ -57,10 +62,8 @@ public class GestorUsuariosImpl implements com.hlanz.bank.business.control.Gesto
 			cuentasDAO.crearCuenta(cuenta);
 			sendMail(usuarioBD);
 		} else 
-			new RuntimeException("Ya hay un usuario con ese DNI");
-		} catch(RuntimeException e) {
-			throw e;
-		}
+			throw new RuntimeException("Ya hay un usuario con ese DNI");
+
 	}
 
 	@Override

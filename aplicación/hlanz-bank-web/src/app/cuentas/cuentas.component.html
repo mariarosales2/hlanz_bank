@@ -1,7 +1,8 @@
-<div class="container">
+<div class="contenedor" fxLayoutAlign="center center" fxLayout="column" *ngIf="idCuenta == null">
   <h4>Cuentas</h4>
-  <div class="mat-elevation-z8" fxLayoutAlign="center" fxLayout="column" *ngIf="idCuenta == null">
-    <mat-table #table [dataSource]="dataSource" fxFlex=100>
+  <mat-spinner *ngIf="!load"></mat-spinner>
+  <div class="mat-elevation-z8" fxLayout="column" *ngIf="load">
+    <mat-table #table [dataSource]="dataSource">
       <ng-container matColumnDef="numero">
         <mat-header-cell *matHeaderCellDef> IBAN </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.numero}} </mat-cell>
@@ -24,6 +25,6 @@
       </div>
     </mat-toolbar>
   </div>
-
-  <app-movimientos [idCuenta]="idCuenta" *ngIf="idCuenta != null"></app-movimientos>
 </div>
+
+<app-movimientos [idCuenta]="idCuenta" *ngIf="idCuenta != null"></app-movimientos>

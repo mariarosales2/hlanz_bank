@@ -2,20 +2,85 @@
   <h3>Panel de administración</h3>
   <mat-tab-group>
       <mat-tab label="Usuarios">
-      <ng-template mat-tab-label>
-        <h5>
-          <i class="material-icons">account_circle</i>
-          Usuarios
-        </h5>
-      </ng-template>
-        Content 1
+        <ng-template mat-tab-label>
+          <h5>
+            <i class="material-icons">account_circle</i>
+            Usuarios
+          </h5>
+        </ng-template>
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <input type="text" name="searchUsuario" placeholder="Buscar" 
+              width="100%" class="form-control mt-3 mb-3" [(ngModel)]="buscaU">
+            <ul *ngIf="usuarios.length>0">
+              <li *ngFor="let usuario of usuarios | busca : buscaU" (click)="modificarObj(usuario)" 
+              class="ml-auto mr-auto">
+                <span class="badge badge-info">{{usuario.idUsuario}}</span> {{usuario.nombre}} {{usuario.apellidos}}
+              </li>
+            </ul>
+            <ul *ngIf="usuarios.length==0">
+              <li>
+                No hay usuarios para mostrar
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6 col-12">
+            <form fxLayout="column" (ngSubmit)="enviar(usuario)">
+              <label>Nombre</label>
+                <input matInput type="text" [(ngModel)]="usuario.nombre" name="nombre" class="form-control">
+              <label>Apellidos</label>
+                <input type="text" class="form-control" matInput [(ngModel)]="usuario.apellidos" name="apellidos">
+              <label>DNI</label>
+                  <input type="text" class="form-control" matInput [(ngModel)]="usuario.dni" name="dni">
+              <label>Teléfono</label>
+                <input type="tel" class="form-control" [(ngModel)]="usuario.telefono" name="telefono">
+              <label>Email</label>
+                <input type="email" class="form-control" [(ngModel)]="usuario.email" name="email">
+              <div class="pt-3 pb-3">
+                <button class="btn" type="submit" >{{modificar == true ? 'Modificar' : 'Crear' }}</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </mat-tab>
       <mat-tab label="Tab 2">
         <ng-template mat-tab-label>
-          <i class="material-icons">info</i>
-          Noticias
+          <h5>
+            <i class="material-icons">info</i>
+            Noticias
+          </h5>
         </ng-template>
-        Content 2
+
+        <div class="row">
+            <div class="col-lg-6 col-12">
+              <input type="text" name="searchUsuario" placeholder="Buscar" 
+              width="100%" class="form-control mt-3 mb-3" [(ngModel)]="buscaN">
+              <ul *ngIf="noticias.length>0">
+                <li *ngFor="let noticia of noticias | busca : buscaN" (click)="modificarObj(noticia)" >
+                  {{noticia.titulo}}
+                </li>
+              </ul>
+              <ul *ngIf="noticias.length==0">
+                <li>
+                    No hay noticias para mostrar
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-12">
+              <form fxLayout="column" (ngSubmit)="enviar(noticia)">
+                <label>Título</label>
+                  <input matInput type="text" [(ngModel)]="noticia.titulo" name="titulo" class="form-control">
+                <label>Mensaje</label>
+                  <!-- <text-angular [(ngModel)]="noticia.body"></text-angular> -->
+                  <input type="text" class="form-control" matInput [(ngModel)]="noticia.body" name="body">
+                <label>Imagen</label>
+                    <!-- <input type="file" src="assets" class="form-control" matInput [(ngModel)]="usuario.dni" name="dni"> -->
+                <div class="pt-3 pb-3">
+                  <button class="btn" type="submit">{{modificar == true ? 'Modificar' : 'Crear' }}</button>
+                </div>
+              </form>
+            </div>
+          </div>
       </mat-tab>
   </mat-tab-group>
 </div>
