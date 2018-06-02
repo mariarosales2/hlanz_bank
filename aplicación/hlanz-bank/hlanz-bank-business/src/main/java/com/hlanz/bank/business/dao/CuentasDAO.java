@@ -18,6 +18,8 @@ public interface CuentasDAO {
 	
 	public Cuentas buscarPorId(int id);
 	
+	public List<Cuentas> getCuentas();
+	
 	public List<Cuentas> buscarPorUsuario(int id);
 	
 	public Cuentas buscarPorNumero(String cuenta);

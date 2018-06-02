@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  constructor(private activatedRoute: ActivatedRoute, private router : Router){
+    const path = this.activatedRoute.snapshot.queryParams['path'];
+    const navigateTo = '/' + path;
+
+    if (path) {
+      this.router.navigate([navigateTo]);
+      console.log(path);
+    }
+  }
 }

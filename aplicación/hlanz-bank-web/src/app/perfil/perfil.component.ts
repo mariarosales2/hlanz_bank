@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../shared/model/usuario.model';
 import { UserService } from '../shared/services/user.service';
 import { AlertService } from '../shared/services/alert.service';
+import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-perfil',
@@ -16,10 +17,17 @@ export class PerfilComponent implements OnInit {
   }
 
   modificarUsuario(){
+    NavComponent.loading = true;
     this.userService.modificar(this.usuario)
       .subscribe(
-        data => this.alertService.openDialog("Correcto","Tus datos se han modificado correctamente"),
-        error => alert("Error")
+        data => {
+          this.alertService.openDialog("Correcto","Tus datos se han modificado correctamente"),
+          NavComponent.loading = false;
+        },
+        error => {
+          this.alertService.openDialog("Error","Tus datos no se han podido modificar correctamente"),
+          NavComponent.loading = false;
+        }
     );
   }
 

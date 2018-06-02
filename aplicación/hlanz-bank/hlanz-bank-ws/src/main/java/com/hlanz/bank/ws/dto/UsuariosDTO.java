@@ -6,7 +6,7 @@ import com.hlanz.bank.business.domain.Usuarios;
 
 public class UsuariosDTO {
 
-	private int idUsuario;
+	private Integer idUsuario;
 	private String nombre;
 	private String apellidos;
 	private String dni;
@@ -30,7 +30,7 @@ public class UsuariosDTO {
 	
 	public static Usuarios toDomain(UsuariosDTO dto) {
 		Usuarios domain = new Usuarios();
-		
+		domain.setIdUsuario(dto.getIdUsuario());
 		domain.setNombre(dto.getNombre());
 		domain.setApellidos(dto.getApellidos());
 		domain.setEmail(dto.getEmail());

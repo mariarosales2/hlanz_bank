@@ -13,6 +13,7 @@ export class TerminosComponent implements OnInit {
 
   onNoClick(){
     this.terminos.aceptarTerminos();
+    console.log(this.terminos.isAcept());
     this.dialogRef.close();
   }
 

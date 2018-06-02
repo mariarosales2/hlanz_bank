@@ -1,0 +1,10 @@
+<div class="contenedor" *ngFor="let noticia of noticias" fxFlex>
+  <div class="card" fxLayout="row">
+    <img class="card-img-top" src={{noticia.imagen}} fxFlex="25">
+    <div class="card-body" fxFlex="75">
+      <h5 class="card-title">{{noticia.titulo}}</h5>
+      <p class="card-text">{{noticia.body.slice(0,55)}}...</p>
+      <a href="#" class="btn btn-primary" [routerLink]="['/info', noticia.id]">Más información</a>
+    </div>
+  </div>
+</div>

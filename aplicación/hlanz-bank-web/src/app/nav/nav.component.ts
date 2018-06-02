@@ -4,12 +4,13 @@ import { Usuario } from '../shared/model/usuario.model';
 import { UserService } from '../shared/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Login } from '../shared/model/login.model';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
-  providers: [ UserService]
+  providers: [ UserService, CookieService]
 })
 export class NavComponent implements OnInit {
   elementos : Elementos[];
@@ -19,14 +20,19 @@ export class NavComponent implements OnInit {
   error : boolean = false;
   admin : boolean;
   sesion : boolean;
+  cookie = false;
 
   constructor(private userService : UserService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private cookieService : CookieService) {
     this.admin = false;
     this.sesion = UserService.isAuthenticated();
   }
 
+  setCookie(){
+    this.cookieService.set("ACCEPT", "1", 1);
+  }
   
   autenticar(){
     NavComponent.loading = true;
@@ -54,15 +60,14 @@ export class NavComponent implements OnInit {
   comprobarNav(){
     if(this.sesion){
       this.elementos = [
-        {name : "Movimientos" , link : "cuentas"},
+        {name : "Movimientos" , link : "movimientos"},
         {name : "Transferencias" , link : "transferencia"},
         {name : "Mi cuenta" , link : "perfil"}
       ]
     }else{
       this.elementos = [
         {name : "Inicio", link : ""},
-        {name : "Cuentas y tarjetas", link : ""},
-        {name: "Créditos" , link : "creditos"}
+        {name : "Cuentas y créditos", link : "cuentas"}
       ];
     }
   }
@@ -70,6 +75,8 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     if(location.href.indexOf("admin") > -1)
       this.admin = true;
+    if(this.cookieService.check("ACCEPT"))
+      this.cookie = true;
     this.comprobarNav();
   }
 }

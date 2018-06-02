@@ -4,15 +4,16 @@ import { TerminosComponent } from '../../terminos/terminos.component';
 
 @Injectable()
 export class TerminosService {
-  acept : Boolean;
+  aceptado : Boolean = false;
 
   constructor() { }
 
   aceptarTerminos(){
-    this.acept = true;
+    this.aceptado = true;
   }
+
   isAcept(){
-    return this.acept;
+    return this.aceptado;
   }
 
 }

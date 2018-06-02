@@ -3,6 +3,7 @@ package com.hlanz.bank.business.dao.impl;
 import java.util.List;
 
 import javax.inject.Named;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import com.hlanz.bank.business.domain.Cuentas;
@@ -22,6 +23,13 @@ public class CuentasDAOImpl extends com.hlanz.bank.common.BaseDAOImpl implements
 	}
 	
 	@Override
+	public List<Cuentas> getCuentas(){
+		String consulta = "select o from Cuentas as o";
+		Query query = em.createQuery(consulta);
+		return (List<Cuentas>) query.getResultList();
+	}
+	
+	@Override
 	public List<Cuentas> buscarPorUsuario(int id) {
 		String consulta = "select o from Cuentas as o where usuarios.id = :id";
 		Query query = em.createQuery(consulta);
@@ -34,7 +42,11 @@ public class CuentasDAOImpl extends com.hlanz.bank.common.BaseDAOImpl implements
 		String consulta = "select o from Cuentas as o where numero = :cuenta";
 		Query query = em.createQuery(consulta);
 		query.setParameter("cuenta", cuenta);
-		return (Cuentas) query.getSingleResult();
+		try {
+			return (Cuentas) query.getSingleResult();
+		}catch(NoResultException e) {
+			return null;
+		}
 	}
 
 	@Override

@@ -15,11 +15,13 @@ import {MatToolbarModule,
         MatSelectModule,
         MatCheckboxModule,
         MatDialogModule,
-        MatTabsModule
+        MatTabsModule,
+        MatExpansionModule
         } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 import { HttpModule, Http } from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
@@ -48,6 +50,7 @@ import { TerminosComponent } from './terminos/terminos.component';
 import { TerminosService } from './shared/services/terminos.service';
 // import { JwtHelperService } from '@auth0/angular-jwt';
 import { BuscaPipe } from './shared/filtro.pipe';
+import { TarjetasComponent } from './tarjetas/tarjetas.component';
 
 
 @NgModule({
@@ -66,7 +69,8 @@ import { BuscaPipe } from './shared/filtro.pipe';
     AdminComponent,
     MovimientoDialogComponent,
     TerminosComponent,
-    BuscaPipe
+    BuscaPipe,
+    TarjetasComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +89,8 @@ import { BuscaPipe } from './shared/filtro.pipe';
     MatCheckboxModule,
     MatDialogModule,
     MatTabsModule,
+    MatExpansionModule,
+    ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
     FlexLayoutModule,

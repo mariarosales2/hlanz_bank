@@ -2,29 +2,29 @@
 <h2 mat-dialog-title>Detalles del movimiento</h2>
 <mat-dialog-content>
     <div class="row">
-        <div class="col-6">
+        <div class="col-lg-6 col-12">
             Origen
             <input matInput disabled class="form-control"
                    [value]="data.cuentaEmisora.numero">
         </div>
-        <div class="col-6">
+        <div class="col-lg-6 col-12">
             Receptor
             <input matInput disabled class="form-control"
             [value]="data.cuentaReceptora.numero">
         </div>
     </div>
     <div class="row">
-        <div class="col-4">
+        <div class="col-lg-4 col-12">
             <h6>Fecha de operación</h6>
             <input matInput disabled class="form-control"
             [value]="data.fecha | date : 'dd-MM-yyyy' ">
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-12">
             Concepto
             <input matInput disabled class="form-control"
                    [value]="data.concepto">
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-12">
             Importe
             <div class="form-group" fxLayout="row" fxFlex="50">
                 <input type="number"id="importe" [value]="data.movimiento" disabled class="form-control">

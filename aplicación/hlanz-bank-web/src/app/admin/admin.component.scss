@@ -1,6 +1,15 @@
 i {
   vertical-align: middle;
 }
+.badge-warning { 
+  color : white; 
+  font-size: 18px;
+}
+
+.badge-warning:hover {
+  cursor: pointer;
+}
+
 li {
   padding : 15px;
   border-bottom: 1px solid #333333;

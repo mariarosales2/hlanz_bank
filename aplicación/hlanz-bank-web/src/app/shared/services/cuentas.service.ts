@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Cuentas } from '../model/cuentas.model';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 
 @Injectable()
@@ -9,8 +10,15 @@ export class CuentasService {
   public static host = "http://localhost:8080/hlanz-bank-web/";
 
   getCuentas(id) : Observable<Cuentas[]> {
-    return this.http.post<Cuentas[]>(CuentasService.host+'services/rest/cuentas/buscar', id, httpOptions)
-      .pipe(data => data);
+    return this.http.post<Cuentas[]>('./services/rest/cuentas/buscar', id, httpOptions)
+      .pipe(data => data)
+      // .catch(error => console.log(error));
+  }
+
+  cuentas() : Observable<Cuentas[]> {
+    return this.http.get<Cuentas[]>('./services/rest/cuentas/cuentas')
+    .pipe(data => data)
+    // .catch( error => Observable.throw(error))
   }
 
 }

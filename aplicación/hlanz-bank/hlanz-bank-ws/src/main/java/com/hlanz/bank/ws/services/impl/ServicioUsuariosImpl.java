@@ -40,7 +40,9 @@ public class ServicioUsuariosImpl implements ServicioUsuarios{
 
 	@Override
 	public void crearUsuario(UsuariosDTO usuario) {
-		gestorUsuarios.registrarUsuario(UsuariosDTO.toDomain(usuario));
+		Usuarios usuarioDom = UsuariosDTO.toDomain(usuario);
+		usuarioDom.setIdUsuario(null);
+		gestorUsuarios.registrarUsuario(usuarioDom);
 	}
 	
 	@Override

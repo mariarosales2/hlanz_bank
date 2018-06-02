@@ -10,17 +10,18 @@ import { RegistroComponent } from './registro/registro.component';
 import { AuthGuardService as AuthGuard } from './shared/services/auth-guard.service';
 import { AdminComponent } from './admin/admin.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { TarjetasComponent } from './tarjetas/tarjetas.component';
 
 const routes: Routes = [ 
   { path: '', redirectTo: 'inicio', pathMatch : 'full' },
   { path: 'inicio', component: HomeComponent},
   { path: 'info/:id', component: NoticiasComponent},
-  { path: 'cuentas', component: CuentasComponent, canActivate: [AuthGuard] },
-  { path : 'movimientos' , component : MovimientosComponent, canActivate: [AuthGuard] },
+  { path: 'movimientos', component: CuentasComponent, canActivate: [AuthGuard] },
   { path : 'transferencia' , component : TransferenciaComponent, canActivate: [AuthGuard]},
   { path: 'registro' , component: RegistroComponent},
-  { path: 'admin', component: AdminComponent},
+  { path: 'admin', component: AdminComponent },
   { path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard]},
+  { path : 'cuentas', component: TarjetasComponent},
   { path: '**', redirectTo: 'inicio' }
 ];
 
@@ -28,7 +29,7 @@ const routes: Routes = [
   exports: [ RouterModule ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes) 
+    RouterModule.forRoot(routes)
   ],
   declarations: []
 })

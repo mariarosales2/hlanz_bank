@@ -16,6 +16,13 @@ public class ServicioCuentasImpl implements com.hlanz.bank.ws.services.ServicioC
 GestorCuentas gestorCuentas;
 
 	@Override
+	public CuentasDTO[] getCuentas() {
+		List<Cuentas> domain = gestorCuentas.getCuentas();
+		CuentasDTO dto = new CuentasDTO();
+		return dto.toDTOListado(domain);
+	}
+
+	@Override
 	public CuentasDTO[] getCuentas(int id) {
 		List<Cuentas> domain = gestorCuentas.getCuentas(id);
 		CuentasDTO dto = new CuentasDTO();

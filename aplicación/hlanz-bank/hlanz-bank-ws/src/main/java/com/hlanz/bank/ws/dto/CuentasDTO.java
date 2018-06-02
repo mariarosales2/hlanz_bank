@@ -3,12 +3,14 @@ package com.hlanz.bank.ws.dto;
 import java.util.List;
 
 import com.hlanz.bank.business.domain.Cuentas;
+import com.hlanz.bank.business.domain.Usuarios;
 
 public class CuentasDTO {
 	
 	int idCuenta;
 	String numero;
 	float saldo;
+	UsuariosDTO propietario;	
 
 	public static CuentasDTO toDTO(Cuentas domain) {
 		CuentasDTO dto = new CuentasDTO();
@@ -16,6 +18,7 @@ public class CuentasDTO {
 		dto.setIdCuenta(domain.getIdCuenta());
 		dto.setNumero(domain.getNumero());
 		dto.setSaldo(domain.getSaldo());
+		dto.setPropietario(UsuariosDTO.toDTO(domain.getUsuarios()));
 		
 		return dto;
 	}
@@ -33,6 +36,7 @@ public class CuentasDTO {
 	
 	public static Cuentas toDomain(CuentasDTO dto) {
 		Cuentas dom = new Cuentas();
+		dom.setIdCuenta(dto.getIdCuenta());
 		dom.setNumero(dto.getNumero());
 		dom.setSaldo(dto.getSaldo());
 		
@@ -62,4 +66,14 @@ public class CuentasDTO {
 	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
+
+	public UsuariosDTO getPropietario() {
+		return propietario;
+	}
+
+	public void setPropietario(UsuariosDTO propietario) {
+		this.propietario = propietario;
+	}
+	
+	
 }

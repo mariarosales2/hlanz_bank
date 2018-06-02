@@ -34,7 +34,6 @@
       </ul>
     </div>
 
-
     <div class="collapse navbar-collapse" id="navbar" *ngIf="sesion && !admin">
       <ul class="navbar-nav  ml-auto">
         <li class="nav-item active" *ngFor="let element of elementos">
@@ -49,3 +48,10 @@
     </div>
 </nav>
 <mat-progress-bar mode="indeterminate" [hidden]="!loading"></mat-progress-bar>
+<div class="alert alert-info alert-dismissible fade show" role="alert" fxFlex=100 [hidden]="admin || cookie">
+  Solicitamos su permiso para obtener datos estadísticos de su navegación en esta web, en cumplimiento del Real 
+  Decreto-ley 13/2012.<br/>
+  <span class="close" data-dismiss="alert" (click)="setCookie()">X</span>  
+  Si continúa navegando consideramos que acepta el uso de cookies.
+  <a href="http://www.interior.gob.es/politica-de-cookies" target="_blank" class="ml-auto">Más información</a>
+</div>

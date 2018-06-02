@@ -26,6 +26,11 @@ public class GestorCuentasImpl implements com.hlanz.bank.business.control.Gestor
 	UsuariosDAO usuariosDAO;
 	
 	@Override
+	public List<Cuentas> getCuentas() {
+		return cuentasDAO.getCuentas();
+	}
+	
+	@Override
 	public List<Cuentas> getCuentas(int id) {
 		return cuentasDAO.buscarPorUsuario(id);
 	}

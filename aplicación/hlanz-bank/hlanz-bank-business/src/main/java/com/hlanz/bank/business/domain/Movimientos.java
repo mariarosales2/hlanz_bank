@@ -1,5 +1,5 @@
 package com.hlanz.bank.business.domain;
-// Generated 14-may-2018 19:18:13 by Hibernate Tools 5.2.8.Final
+// Generated 02-jun-2018 23:39:42 by Hibernate Tools 5.2.8.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -32,6 +32,15 @@ public class Movimientos implements java.io.Serializable {
 	public Movimientos() {
 	}
 
+	public Movimientos(Cuentas cuentasByCuentaReceptora, Date fecha, String concepto, float movimiento,
+			float saldoActual) {
+		this.cuentasByCuentaReceptora = cuentasByCuentaReceptora;
+		this.fecha = fecha;
+		this.concepto = concepto;
+		this.movimiento = movimiento;
+		this.saldoActual = saldoActual;
+	}
+
 	public Movimientos(Cuentas cuentasByCuentaEmisora, Cuentas cuentasByCuentaReceptora, Date fecha, String concepto,
 			float movimiento, float saldoActual) {
 		this.cuentasByCuentaEmisora = cuentasByCuentaEmisora;
@@ -55,7 +64,7 @@ public class Movimientos implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cuenta_emisora", nullable = false)
+	@JoinColumn(name = "cuenta_emisora")
 	public Cuentas getCuentasByCuentaEmisora() {
 		return this.cuentasByCuentaEmisora;
 	}

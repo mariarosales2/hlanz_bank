@@ -8,4 +8,9 @@ export class Movimientos {
     concepto : String;
     movimiento : Number;
     saldoActual : Number;
+
+    constructor(){
+        this.cuentaEmisora = new Cuentas();
+        this.cuentaReceptora = new Cuentas();
+    }
 }

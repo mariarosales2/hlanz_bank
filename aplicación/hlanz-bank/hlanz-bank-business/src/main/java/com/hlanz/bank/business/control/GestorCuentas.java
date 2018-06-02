@@ -10,6 +10,8 @@ import com.hlanz.bank.business.domain.Usuarios;
 
 public interface GestorCuentas {
 
+	public List<Cuentas> getCuentas();
+	
 	public List<Cuentas> getCuentas(int id);
 	
 }

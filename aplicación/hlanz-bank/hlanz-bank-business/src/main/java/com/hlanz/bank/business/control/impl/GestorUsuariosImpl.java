@@ -91,7 +91,7 @@ public class GestorUsuariosImpl implements com.hlanz.bank.business.control.Gesto
 		    
 		 String BODY = 
 				 "<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" width='100%' style=\"font-size:16px; padding:'20px'\">"
-					 + "<tr style=\"text-align:center;color:lightgrey\"> <td bgcolor=\"#70bbd9\"> <h3>Bienvenido a Hlanz Bank " + usuario.getNombre() + " " + usuario.getApellidos()
+					 + "<tr style=\"text-align:center;color:#70bbd9\"> <td bgcolor=\"#DEDEDE\"> <h3>Bienvenido a Hlanz Bank " + usuario.getNombre() + " " + usuario.getApellidos()
 					 + "</h3></td></tr>"
 					 + "<tr>"
 						 + "<td style=\"padding: '40px 30px 40px 30px;'\">"

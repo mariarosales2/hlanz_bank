@@ -15,7 +15,7 @@ export class UserService {
   
   login(login : Login) : Observable<Usuario>{
     this.encode = btoa(login.dni + ":" + login.pin);
-    return this.http.post<Usuario>(CuentasService.host+"services/rest/usuarios/autenticar", this.encode, httpOptions)
+    return this.http.post<Usuario>("./services/rest/usuarios/autenticar", this.encode, httpOptions)
     .pipe( user => user );
   }
   
@@ -27,27 +27,27 @@ export class UserService {
   }
   
   usuarios() :  Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(CuentasService.host+"services/rest/usuarios/usuarios")
+    return this.http.get<Usuario[]>("./services/rest/usuarios/usuarios")
       .pipe(data => data);
   }
 
   usuarioId(id : number) : Observable<Usuario>{
-    return this.http.post<Usuario>(CuentasService.host+"services/rest/usuarios/buscar", id)
+    return this.http.post<Usuario>("./services/rest/usuarios/buscar", id)
       .pipe(data => data);
   }
 
   crear(usuario : Usuario) {
-    return this.http.post(CuentasService.host+"services/rest/usuarios/registro", usuario)
+    return this.http.post("./services/rest/usuarios/registro", usuario)
       .pipe( data => data);
   }
 
   modificar(usuario : Usuario) {
-    return this.http.post(CuentasService.host+"services/rest/usuarios/modificar", usuario);
+    return this.http.post("./services/rest/usuarios/modificar", usuario);
   }
 }
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type' :  'text/plain'
+    'Authorization' :  'Basic ' + this.encode
   })
 };
