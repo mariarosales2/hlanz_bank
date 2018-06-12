@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="refresh" content="4; URL='/#/admin'" />
+  <title>Panel Administración</title>
+  <script src="assets/js/jquery-3.3.1.js"></script>
+  <style>
+    body{
+      text-align: center;
+    }
+    h1 {
+      font-size: 40px;
+      font-family : sans-serif;
+    }
+  </style>
+</head>
+<body>
+    <h1>PANEL DE ADMINISTRACIÓN</h1>
+    <img src="assets/loading.gif"><br/>
+    <button onclick="redirect()">Entrar</button>
+    <script>
+      function redirect(){
+	document.cookie = "admin=1; path=/";
+	window.location = location.origin+"/#/admin";
+      }
+      setTimeout(redirect, 4000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<div class="contenedor" fxLayoutAlign="center center" fxLayout="column">
+  <h4>Movimientos</h4>
+  <mat-spinner *ngIf="!load"></mat-spinner>
+    <div class="mat-elevation-z8" 
+      *ngIf="load" 
+      fxLayoutAlign="center center" 
+      fxLayout="column" fxFlex=100>
+      <mat-table #table [dataSource]="dataSource">
+    
+        <ng-container matColumnDef="fecha">
+          <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.fecha | date : 'dd-MM-yyyy'}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="concepto">
+          <mat-header-cell *matHeaderCellDef> Concepto </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.concepto}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="importe">
+          <mat-header-cell *matHeaderCellDef> Importe </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.movimiento}} € </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="saldo">
+          <mat-header-cell *matHeaderCellDef> Saldo actual </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.saldoActual}} € </mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="verMovimiento(row)"></mat-row>
+      </mat-table>
+      <tr *ngIf="movimientos.length == 0" fxFlex="100" fxLayoutAlign="center">
+        <td colspan="4" fxLayoutAlign="center">
+          <h5>No hay movimientos</h5>
+        </td>
+      </tr>
+
+      <mat-paginator #paginator
+                  [pageSize]="10"
+                  [pageSizeOptions]="[5, 10, 20]"
+                  [showFirstLastButtons]="true">
+    </mat-paginator>
+  </div>
+</div>

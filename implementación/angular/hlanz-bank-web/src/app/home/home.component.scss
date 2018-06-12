@@ -1,0 +1,37 @@
+@import "../../colores.scss";
+app-home {
+    background-color: $grey;
+}
+.carousel-inner{
+    height: auto;
+}
+.carousel-item {
+    text-align: center;
+    img{
+        margin: 0 auto;
+        width: 100%;
+    }
+    h1{
+        background: rgba(0,0,0,0.5);
+    }
+}
+
+.card {
+    height: 100%;
+    border: 2px solid $blue;
+    box-shadow: 0px 0px 10px 1px $dark-grey;
+    div.img {
+        width: 100%;
+        height: 50%;
+        img {
+            margin: auto 0;
+            height: 100%;
+        }
+    }
+    .card-body {
+        height: 50%;
+        div {
+            margin-top: auto;
+        }
+    }
+}

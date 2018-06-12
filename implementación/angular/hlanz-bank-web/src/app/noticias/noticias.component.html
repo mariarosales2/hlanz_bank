@@ -1,0 +1,50 @@
+<div class="contenedor" fxLayoutAlign="center center">
+  <div class="row">
+    <div class="col-12">
+      <h4>Información</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-12">
+      <h5 class="bold">{{info.titulo}}</h5>
+      <div [innerHTML]="info.body"></div>
+        <div class="row">
+          <div class="col-12">
+            <img src=./assets/{{info.imagen}} class="img-fluid">
+          </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-12">
+      <form>
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" id="nombre">
+        </div>
+        <div class="form-group">
+          <label for="fNac">Fecha de Nacimiento</label>
+          <input type="date" class="form-control" id="fNac">
+        </div>
+        <div class="form-group">
+          <label for="tlf">Teléfono</label>
+          <input type="tel" class="form-control" id="tlf">
+        </div>
+        <div class="form-group">
+          <label for="titulo">Título en posesión</label>
+          <select class="form-control" id="titulo">
+            <option disabled>-Sin asignar-</option>
+            <option value="bach">Bachillerato</option>
+            <option value="cfgm">Ciclo Formativo Grado Medio</option>
+            <option value="cfgs">Ciclo Formativo Grado Superior</option>
+            <option value="grado">Título Universitario</option>
+            <option value="master">Máster</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="observaciones">Observaciones</label>
+          <textarea class="form-control" id="observaciones" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn">Enviar</button>
+        </form>
+    </div>
+  </div>
+</div>
