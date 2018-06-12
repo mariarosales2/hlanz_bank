@@ -1,6 +1,6 @@
-#Entornos de desarrollo
-##Frontend
-###Requisitos:
+# Entornos de desarrollo
+## Frontend
+### Requisitos:
 * Visual Studio Code
 * NodeJS
 * Angular cli
@@ -12,8 +12,8 @@ Para compilar ejecutar el comando `ng build`
 Copiar los archivos compilados que se encuentran en hlanz-bank-web > dist en el módulo web del proyecto Maven
 **hlanz-bank > hlanz-bank-web > src > main > webapp**
 
-##Backend
-###Requisitos:
+## Backend
+### Requisitos:
 * Eclipse Oxygen
 * Maven
 * JDK 1.8
@@ -21,7 +21,7 @@ Copiar los archivos compilados que se encuentran en hlanz-bank-web > dist en el 
 Para la compilación de la aplicación WAR realizar `Maven Install` sobre los módulos o ejecutar el comando `mvn install` en la consola.
 La aplicación se encuentra compilada en **hlanz-bank-web > target.**
 
-##Servidor
+## Servidor
 * Tomcat 8.5
 
 Copiar la aplicación .war en **webapps** con el nombre de *ROOT.war* para desplegarlo en la raíz.
